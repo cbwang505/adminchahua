@@ -63,15 +63,21 @@ h2{font-weight:normal;}
 .nav a h2{font-size:14px;color:#d6e8f1;}
 .nav a:hover h2{color:#fff;}
 
+.navcontent{
+    background:url(../images/topbg.gif) repeat; height: 88px;
+}
+
 .navsamll{float:left;}
-.navsamll li{float:left;width:87px;height:28px; text-align:center;}
-.navsamll li a{display:block;width:87px;height:28px;-moz-transition: none; transition: background-color 0.3s linear; -moz-transition: background-color 0.3s linear; -webkit-transition: background-color 0.3s linear; -o-transition: background-color 0.3s linear; }
-.navsamll li a.selected{background:url(../images/navbg.png) no-repeat;}
+.navsamll li{float:left;width:117px;height:38px; text-align:center;}
+.navsamll li a{display:block;width:117px;height:38px;-moz-transition: none; transition: background-color 0.3s linear; -moz-transition: background-color 0.3s linear; -webkit-transition: background-color 0.3s linear; -o-transition: background-color 0.3s linear; }
+.navsamll li a.selected{
+    display:block;background:#000;color:#fff;background: none repeat scroll 0% 0% rgb(43, 127, 181);
+}
 .navsamll li a:hover{display:block;background:#000;color:#fff;background: none repeat scroll 0% 0% rgb(43, 127, 181);}
-.navsamll li img{margin-top:10px;}
+.navsamll li img{  margin-top: -2px;padding-right: 5px;vertical-align: middle; display: inline-block}
 .navsamll li a{display:block;}
-.navsamll a h2{font-size:14px;color:#d6e8f1; line-height: 25px}
-.navsamll a:hover h2{color:#fff;}
+.navsamll a h2{font-size:14px;color:#d6e8f1; line-height: 38px ;display: inline-block;}
+.navsamll a:hover h2{color:#fff; display: inline-block;}
 .topright ul{padding-top:15px; float:right; padding-right:12px;}
 .topright ul li{float:left; padding-left:9px; padding-right:9px; background:url(../images/line.gif) no-repeat right;}
 .topright ul li:last-child{background:none;}

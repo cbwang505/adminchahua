@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" type="text/css" href="css/menu.css"/>
+
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
+<script type="text/javascript">
+$(function(){
+
+    $("#mytabs").idTabs();
+	//顶部导航切换
+	$(".nav li a").click(function(){
+		$(".nav li a.selected").removeClass("selected")
+		$(this).addClass("selected");
+	})
+
+    $(".navsamll li a").click(function(){
+
+        $(".navsamll li a.selected").removeClass("selected")
+        $(this).addClass("selected");
+       var  totext=  $(this).find("h2").text();
+       var   tourl= $(this).attr("data-to-url")
+        var   toid=$(this).attr("id");
+
+        newtab(totext,tourl,toid);
+    })
+
+
+})
+
+    function newtab(q,w,e)
+    {
+
+    var myopt={id:e,name:q,url:w};
+     parent.rightFrame.addopt(myopt);
+    }
+</script>
+
+
+</head>
+
+<body>
+<div id="menu">
+    <ul class="menu">
+        <li><a href="#" class="parent"><span>主菜单</span></a>
+
+        </li>
+        <li><a href="#"><span>企业信息初始化</span></a>
+        </li>
+        <li><a href="#"><span>企业信息变更</span></a></li>
+        <li><a href="#"><span>查询统计</span></a></li>
+        <li class="last"><a href="#"><span>人事信息管理</span></a></li>
+    </ul>
+</div>
+<div style="display: none;">
+<div id="tab1" >
+    <ul class="navsamll">
+
+        <li><a href="javascript:void(0)" data-to-url="imgtable.html"  id="sub2" target="rightFrame"><h2>模型管理</h2></a></li>
+        <li><a href="javascript:void(0)" data-to-url="imglist.html"   id="sub3"  target="rightFrame"><h2>模块设计</h2></a></li>
+        <li><a href="javascript:void(0)" data-to-url="tools.html"  id="sub4"   target="rightFrame"><h2>常用工具</h2></a></li>
+        <li><a href="javascript:void(0)" data-to-url="computer.html"  id="sub5"  target="rightFrame"><h2>文件管理</h2></a></li>
+
+        <li><a href="javascript:void(0)" data-to-url="form.html" id="sub13" target="rightFrame" class="selected"><h2>添加编辑</h2></a></li>
+    </ul>
+</div>
+
+<div id="tab2" >
+    <ul class="navsamll">
+        <li><a href="javascript:void(0)" data-to-url="tools.html"  id="sub7"   target="rightFrame"><h2>常用工具</h2></a></li>
+        <li><a href="javascript:void(0)" data-to-url="computer.html"  id="sub8"  target="rightFrame"><h2>文件管理</h2></a></li>
+
+        <li><a href="javascript:void(0)" data-to-url="default.html"   id="sub10"  target="rightFrame" class="selected"><h2>工作台</h2></a></li>
+        <li><a href="javascript:void(0)" data-to-url="imgtable.html"   id="sub11"  target="rightFrame"><h2>模型管理</h2></a></li>
+        <li><a href="javascript:void(0)" data-to-url="imglist.html"   id="sub12"  target="rightFrame"><h2>模块设计</h2></a></li>
+
+    </ul>
+</div>
+<div id="tab3">
+    <ul class="navsamll">
+        <li><a href="javascript:void(0)" data-to-url="http://iask.com/"  id="sub14"   target="rightFrame"><h2>爱问</h2></a></li>
+        <li><a href="javascript:void(0)" data-to-url="http://www.sooule.com/"  id="sub15"  target="rightFrame"><h2>搜乐</h2></a></li>
+        <li><a href="javascript:void(0)" data-to-url="http://www.sogou.com/"   id="sub16"  target="rightFrame"><h2>搜狗</h2></a></li>
+        <li><a href="javascript:void(0)" data-to-url="http://www.baidu.com"   id="sub17"  target="rightFrame" class="selected"><h2>百度</h2></a></li>
+        <li><a href="javascript:void(0)" data-to-url="http://www.csdn.com"   id="sub18"  target="rightFrame"><h2>csdn</h2></a></li>
+        <li><a href="javascript:void(0)" data-to-url="http://www.soso.com"   id="sub19"  target="rightFrame"><h2>搜搜</h2></a></li>
+
+    </ul>
+</div>
+
+</div>
+<div class="navcontent">
+    <div class="topleft">
+    <a href="main.html" target="_parent"><img src="images/logo.png" title="系统首页" /></a>
+    </div>
+
+    <ul class="nav " id="mytabs">
+    <li><a href="#tab1"  class="selected"><img src="images/icon01.png" title="工作台" /><h2>工作台</h2></a></li>
+    <li><a href="#tab2" ><img src="images/icon02.png" title="模型管理" /><h2>模型管理</h2></a></li>
+    <li><a href="#tab3" ><img src="images/icon03.png" title="模块设计" /><h2>模块设计</h2></a></li>
+    <li><a href="tools.html"  target="rightFrame"><img src="images/icon04.png" title="常用工具" /><h2>常用工具</h2></a></li>
+    <li><a href="computer.html" target="rightFrame"><img src="images/icon05.png" title="文件管理" /><h2>文件管理</h2></a></li>
+    <li><a href="tab.html"  target="rightFrame"><img src="images/icon06.png" title="系统设置" /><h2>系统设置</h2></a></li>
+
+    </ul>
+    <div class="topright">
+        <ul>
+            <li><span><img src="images/help.png" title="帮助"  class="helpimg"/></span><a href="#">帮助</a></li>
+            <li><a href="#">关于</a></li>
+            <li><a href="login.html" target="_parent">退出</a></li>
+        </ul>
+
+        <div class="user">
+            <span>admin</span>
+            <i>消息</i>
+            <b>5</b>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

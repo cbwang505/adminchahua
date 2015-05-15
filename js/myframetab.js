@@ -101,8 +101,12 @@
                 this.liclick("tab" + option.id);
                 return false;
             }
-            this.addTab(option);
-            this.addFrame(option);
+
+
+            if (this.addTab(option)) {
+
+                this.addFrame(option);
+            }
         },
         isExist: function (id) {
             return $("#tab" + id).length > 0;
@@ -141,32 +145,30 @@
             });
 
             if ($("#" + tabid).length == 0) {
-                if(this.mydefault.autoresize) {
 
-                    var lilenghcount = 0;
-                    this.mydefault.tabs.find("li:visible").each(function () {
-                        lilenghcount += $(this)[0].offsetWidth;
-                    })
+                element.appendTo(this.mydefault.tabs);
 
-                    if(lilenghcount> document.body.clientWidth-50)
-                    {
 
-                        alert("已超过最大标签页限制,请先关闭部分标签页再添加标签页");
-                    }
-                    else
-                    {
-                        element.appendTo(this.mydefault.tabs);
-                        _this.liclick(tabid);
-
-                    }
-                }else {
-                    element.appendTo(this.mydefault.tabs);
+                var lilenghcount = 0;
+                this.mydefault.tabs.find("li:visible").each(function () {
+                    lilenghcount += $(this)[0].offsetWidth;
+                })
+                if (lilenghcount < document.body.clientWidth - 15) {
                     _this.liclick(tabid);
+                    return true;
+                } else {
+                    element.remove();
+                    alert("已超过最大标签页限制,请先关闭部分标签页再添加标签页");
+                    return false;
+                    ;
                 }
+
             } else {
 
                 _this.liclick(tabid);
+                return true;
             }
+            return true;
         },
         pinactiveli: function () {
 
@@ -222,10 +224,10 @@
             }
 
 
-                 if (this.mydefault.tabs.find("li:visible").index($("#" + id)) > this.mydefault.maxli) {
-                     //  this.hidepreli(id);
+            if (this.mydefault.tabs.find("li:visible").index($("#" + id)) > this.mydefault.maxli) {
+                //  this.hidepreli(id);
 
-                 }
+            }
 
 
             this.loadFrame(id.toString().substring(3));
