@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="js/select-ui.min.js"></script>
+<script type="text/javascript" src="editor/kindeditor.js"></script>
+    <script type="text/javascript" src="js/myframetab.js"></script>
+
+  
+<script type="text/javascript">
+
+
+    window.options = [
+        {id:"1",name:"BlogJava",lock:true,url:"http://www.blogjava.net/fantasy",title:"BlogJava-中国最大的搜索引擎",frame:{name:'BlogFrame',style:'width:100%;height:100%'},urlimg:"sImg_Apps.png"},
+        {id:"2",name:"爱问-中国最大的搜索引擎",lock:false,url:"http://iask.com/",title:"爱问-中国最大的搜索引擎",urlimg:"sImg_PptType.png"},
+        {id:"3",name:"搜乐-中国最大的搜索引擎",lock:false,url:"http://www.sooule.com/",title:"搜乐-中国最大的搜索引擎",urlimg:"sImg_ApkType.png"},
+        {id:"4",name:"搜狗",lock:false,url:"http://www.sogou.com/ ",title:"搜狗-中国最大的搜索引擎",urlimg:"sImg_IpaType.png"},
+        {id:"5",name:"百度",lock:true,url:"http://www.baidu.com",title:"百度-中国最大的搜索引擎",urlimg:"sImg_ExeType.png"},
+        {id:"6",name:"csdn",lock:true,url:"http://www.csdn.com",title:"谷歌-中国最大的搜索引擎",urlimg:"sImg_XlsType.png"},
+        {id:"7",name:"搜搜",lock:false,url:"http://www.soso.com",title:"搜搜-中国最大的搜索引擎",urlimg:"sImg_TorrentType.png"},
+        {id:"8",name:"必应",lock:true,url:"http://cn.bing.com/",title:"必应-中国最大的搜索引擎",urlimg:"sImg_MusicType.png"},
+    {id:"9",name:"博客园",lock:true,url:"http://www.cnblogs.com/",title:"必应-中国最大的搜索引擎",urlimg:"sImg_MusicType.png"},
+        {id:"10",name:"oschina",lock:true,url:"http://www.oschina.net",title:"必应-中国最大的搜索引擎",urlimg:"sImg_MusicType.png"},
+    {id:"11",name:"工作台",lock:true,url:"default.html",title:"必应-中国最大的搜索引擎",urlimg:"sImg_MusicType.png"}];
+    var add = function(i){
+        $("#myframetaba").myframetab("add",window.options[i]);
+    };
+
+    function addopt(myopt)
+    {
+
+        $("#myframetaba").myframetab("add",myopt);
+
+    }
+
+
+$(document).ready(function(e) {
+
+    $("#myframetaba").myframetab();
+
+   add(10);
+   /* for(var i=0 ;7 > i ;i++)
+    {
+
+        $("#myframetaba").myframetab("add",window.options[i]);
+
+    }*/
+    $(".select1").uedSelect({
+        width : 345
+    });
+    $(".select2").uedSelect({
+        width : 167
+    });
+    $(".select3").uedSelect({
+        width : 100
+    });
+});
+</script>
+</head>
+
+<body>
+
+	<div class="place" style="display: none;">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="javascript:add(1)">爱问</a></li>
+        <li><a href="javascript:add(2)">搜乐</a></li>
+        <li><a href="javascript:add(3)">搜狗</a></li>
+        <li><a href="javascript:add(4)">百度</a></li>
+        <li><a href="javascript:add(5)">csdn</a></li>
+        <li><a href="javascript:add(6)">搜搜</a></li>
+        <li><a href="javascript:add(7)">必应</a></li>
+        <li><a href="javascript:add(8)">博客园</a></li>
+        <li><a href="javascript:add(9)">oschina</a></li>
+
+
+
+    </ul>
+
+    </div>
+    <div  style="height: 100%">
+   <table width="100%" height="100%">
+    <tr>
+       <td width="100%" height="38px">
+           <div class="itab">
+               <ul id="myframetaba">
+
+
+                   <!--
+                       <li><a href="#tab2">自定义</a><span></span></li>-->
+               </ul>
+           </div>
+
+       </td>
+
+    </tr>
+    <tr>
+
+        <td height="100%" width="100%">
+            <div id="myframecontainer" style="height: 100%;width: 100% ;margin: 5px">
+
+            </div>
+
+        </td>
+    </tr>
+
+   </table>
+
+    </div>
+
+</body>
+</html>
