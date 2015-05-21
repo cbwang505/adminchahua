@@ -27,7 +27,8 @@
             autoresize: true,
             defaultliwidth: 135,
             prewidth: null,
-            maxli: null
+            maxli: null,
+            onerow:true
         };
 
 
@@ -153,10 +154,12 @@
                 this.mydefault.tabs.find("li:visible").each(function () {
                     lilenghcount += $(this)[0].offsetWidth;
                 })
-                if (lilenghcount < document.body.clientWidth - 15) {
+                if  ( (lilenghcount < document.body.clientWidth - 15)|!this.mydefault.onerow) {
                     _this.liclick(tabid);
                     return true;
                 } else {
+
+
                     element.remove();
                     alert("已超过最大标签页限制,请先关闭部分标签页再添加标签页");
                     return false;
