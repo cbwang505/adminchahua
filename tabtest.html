@@ -125,48 +125,45 @@
                 return D.clientHeight;
             }
         }
-        $(document).ready(function (e) {
+        $(document).ready(function () {
 
-
-
-                var winnerheight =getwinnerheight();
-
-                $("#myframecontainer").height(winnerheight - 50);
-
-                $("#myframetaba").myframetab();
-
-                add(10);
-                $(window).resize(function () {
 
                     var winnerheight = getwinnerheight();
 
-
                     $("#myframecontainer").height(winnerheight - 50);
 
+                    $("#myframetaba").myframetab();
 
-                })
+                    add(10);
+                    $(window).resize(function () {
+
+                        var winnerheight = getwinnerheight();
 
 
-                if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.match(/7./i) == "7.") {
+                        $("#myframecontainer").height(winnerheight - 50);
 
 
-                    $("#myframecontainer").height(winnerheight - 50);
+                    })
+
+
+                    if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.match(/7./i) == "7.") {
+
+
+                        $("#myframecontainer").height(winnerheight - 50);
+                    }
+                    else if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.match(/8./i) == "8.") {
+
+
+                        $("#myframecontainer").height(winnerheight - 50);
+                    }
+                    else if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.match(/9./i) == "9.") {
+
+                    }
+                    else if (navigator.appName == "Microsoft Internet Explorer") {
+
+                    }
                 }
-                else if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.match(/8./i) == "8.") {
-
-
-
-                    $("#myframecontainer").height(winnerheight - 50);
-                }
-                else if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.match(/9./i) == "9.") {
-
-                }
-                else if (navigator.appName == "Microsoft Internet Explorer") {
-
-                }
-            }
-            )
-            ;
+        );
 
 
     </script>
