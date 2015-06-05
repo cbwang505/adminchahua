@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script language="javascript">
+$(function(){	
+	//导航切换
+	$(".imglist li").click(function(){
+		$(".imglist li.selected").removeClass("selected")
+		$(this).addClass("selected");
+	})	
+})	
+</script>
+</head>
+
+
+<body>
+
+
+    <div class="rightinfo">
+    
+    <div class="tools">
+    
+    	<ul class="toolbar">
+        <li class="click"><span><img src="images/t01.png" /></span>添加</li>
+        <li class="click"><span><img src="images/t02.png" /></span>修改</li>
+        <li><span><img src="images/t03.png" /></span>删除</li>
+        <li><span><img src="images/t04.png" /></span>统计</li>
+        </ul>
+        
+        
+
+    
+    </div>
+
+
+
+        <div class="itab">
+            <ul>
+                <li><a href="#tab1" class="selected">发布通知</a></li>
+
+            </ul>
+        </div>
+        <div id="tab1" class="tabson">
+
+           <table class="tablelist">
+
+
+               <tr>
+                   <th style="width:240px">栏目类别父类编号</th>
+                   <td><input name="" type="text" class="dfinput"></td>
+
+                   <th style="width:230px">栏目类别编号</th>
+                   <td><input name="" type="text" class="dfinput" /></td>
+
+               </tr>
+               <tr>
+                   <th style="width:150px">栏目类别名称</th>
+                   <td><input name="" type="text" class="dfinput"></td>
+                   <th style="width:120px">栏目类型</th>
+                   <td><input name="" type="text" class="dfinput"></td>
+               </tr>
+
+
+           </table>
+
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>

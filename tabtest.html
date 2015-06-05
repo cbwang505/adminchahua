@@ -125,7 +125,16 @@
                 return D.clientHeight;
             }
         }
+        function getwinnerwidth() {
+            if (typeof( window.innerWidth) != "undefined") {
 
+
+                return window.innerWidth;
+            } else {
+                var B = document.body, D = document.documentElement;
+                return D.clientWidth;
+            }
+        }
 
         $(document).ready(function () {
 
