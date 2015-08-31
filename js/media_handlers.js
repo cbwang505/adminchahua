@@ -193,13 +193,7 @@ function uploadSuccess(file, serverData) {
 	var isSuccess = (serverData.indexOf("successed")==0?true:false);
 	try {
 	    if (isSuccess) {
-	        var tr = document.getElementById(file.id);
-	        tr.style.color = "green";
-	        var bar = document.getElementById(file.id + "_bar");
-	        bar.parentNode.innerHTML = "上传成功";
-	        var delObject = document.getElementById(file.id + "_del");
-	        delObject.parentNode.innerHTML = "&nbsp;";
-	        document.getElementById(this.customSettings.myFileListTarget + "Count").innerHTML = this.getStats().files_queued;
+
 	        var t = this.getStats().files_queued;
 
 	        var datas = serverData.split('|');
@@ -215,7 +209,7 @@ function uploadSuccess(file, serverData) {
 	               // alert("文件全部上传完毕11");
 //	                window.returnValue = strarr;
 //	                window.close();
-	                window.parent.codeOK(strarr);
+
 	            }
 	        }
 

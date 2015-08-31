@@ -1,0 +1,1242 @@
+栏目:图片新闻,最新信息,通知公告,工作动态,考核通报,党建园地,警情分析,文件下载,典型案例,巡逻防控
+
+值班标签: leader                        policeman                       Monitor
+--------------------------------------------------------------------------------------------
+分局导航:
+
+<a href="http://www.ga/" style="color:white">公安部</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www1.zj/pub/zjsgatnw/" style="color:white">省厅</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://10.119.1.11/Edit03/index.jsp" style="color:white">市局</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=""style="color:white"></a>
+分局&nbsp;&nbsp;&nbsp;&nbsp;市局&nbsp;&nbsp;&nbsp;&nbsp;省厅&nbsp;&nbsp;&nbsp;&nbsp;公安部
+
+
+--------------------------------------------------------------------------------------------
+
+
+登陆模块:
+
+
+
+    <script type="text/javascript">
+        function pkishow() {
+
+
+            var txtout = '';
+            if ('$isLogin$' == 'Y') {
+
+                txtout +=   '当前用户:管理员 <a href="/PolicePortal/Front/Index/LogExitXTJ">[注销]<a/> <a href="/PolicePortal/Admin/Login">[进入后台]</a>';
+
+
+            } else {
+
+
+                txtout += "<input type=\"button\" name=\" buttona \" id=\" buttona \" value=\"\" onclick=\" window.location.href = 'https://10.119.31.1/Front'\" class = \"pki\" > ";
+            }
+            document.write(txtout);
+
+        }
+    </script>
+    <script type="text/javascript">       pkishow(); </script>
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+时间显示:
+
+<div id="clock"  style="color: white">
+        正在加载时间，请稍候...</div>
+
+
+    <script type="text/javascript">
+        function clockadd(obj) {
+            if (typeof (obj) == "string") obj = o.o(obj);
+            if (!obj) return;
+            window.setInterval(function () {
+                var now = new Date();
+                var day = now.getDay();
+                dateString = now.toLocaleString();
+                if (dateString.indexOf('星期') < 0) dateString += ' 星期' + '日一二三四五六'.charAt(day);
+                obj.innerHTML = dateString;
+            }, 1000);
+        }
+    </script>
+    <script type="text/javascript">      clockadd(document.getElementById("clock")); </script>
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+通用导航:
+
+
+<ul>
+    <li><a href="/PolicePortal/Front/Index/Index?docClsCD=18&amp;frontTemplateClsID=18&amp;customTemplateType=S">首页</a></li>
+    <li><a href="#">民警通讯录</a></li>
+    <li><a href="#">分局呼警通</a></li>
+    <li><a href="#">市局邮箱</a></li>
+    <li><a href="#">省厅邮箱</a></li>
+    <li><a href="/PolicePortal/ny.html">荣誉之窗</a></li>
+    <li><a href="/PolicePortal/">信息发布</a></li>
+</ul>
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+图片新闻:
+
+<script type="text/javascript">
+function picShowss(){
+var ImgCount ='5';
+            var focus_width = 364;
+            var focus_height = 257;
+            var text_height = 20;
+            var swf_height = focus_height + text_height;
+            var pics = '';
+            var links = '';
+            var texts = '';
+            function addTxt(url, img, title) {
+                if (pics != '') {
+                    pics = "|" + pics;
+                    links = "|" + links;
+                    texts = "|" + texts;
+                }
+                pics = escape(img) + pics;
+                links = escape(url) + links;
+                texts = title + texts;
+
+            }
+            if (ImgCount > 6) {
+                ImgCount = 6;
+            }
+
+$DocList:{addTxt('$it.url$', '$it.filepath$', '$it.title$');};separator="\n"$
+
+            var txt = '<embed src="/PolicePortal/Content/images/Front/frontlunbo/pic.swf" wmode="opaque" FlashVars="pics=' + pics + '&links=' + links + '&texts=' + texts + '&borderwidth=' + focus_width + '&borderheight=' + focus_height + '&textheight=' + text_height + '" menu="false"    quality="high" bgcolor="#E0E0E0" width="' + focus_width + '" height="' + swf_height + '" allowScriptAccess="sameDomain" type="application/x-shockwave-flash"/>';
+            document.write(txt);
+}
+</script>
+<script type="text/javascript">
+picShowss();
+</script>
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+最新信息:
+
+<table width="349" border="0" cellspacing="0" cellpadding="0">               $DocList:{<tr>
+                  <td width="27" height="24" align="center" class="db"><img src="$templatePath$/images/icon.jpg" width="9" height="9" /></td>
+                  <td width="242"  class="db"><a href="$it.url$" target="_blank"  ><div style='width:230px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis'>$it.title$</div></a></td>
+                  <td width="80" class="db">$it.pubdate$</td>
+                </tr>};separator="\n"$ </table>
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+最新信息更多:
+
+<img  src="$templatePath$/images/tr.jpg" width="182" height="28" />
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+通知公告:
+
+<table width="349" border="0" cellspacing="0" cellpadding="0">               $DocList:{<tr>
+                  <td width="27" height="24" align="center" class="db"><img src="$templatePath$/images/icon.jpg" width="9" height="9" /></td>
+                  <td width="242"  class="db"><a href="$it.url$" target="_blank"  ><div style='width:230px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis'>$it.title$</div></a></td>
+                  <td width="80" class="db">$it.pubdate$</td>
+                </tr>};separator="\n"$ </table
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+通知公告更多:
+
+<a href='$url$'><img style="border-left-style: none; border-bottom-style: none; border-right-style: none; border-top-style: none; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; border-top-width: 0px;" src="$templatePath$/images/mored.jpg" width="182" height="28"></a>
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+ 工作动态:
+
+ <table width="349" border="0" cellspacing="0" cellpadding="0">               $DocList:{<tr>
+                   <td width="27" height="24" align="center" class="db"><img src="$templatePath$/images/icon.jpg" width="9" height="9" /></td>
+                   <td width="242"  class="db"><a href="$it.url$" target="_blank"  ><div style='width:230px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis'>$it.title$</div></a></td>
+                   <td width="80" class="db">$it.pubdate$</td>
+                 </tr>};separator="\n"$ </table>
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+ 工作动态更多:
+
+ <a href='$url$'><img  style="border-left-style: none; border-bottom-style: none; border-right-style: none; border-top-style: none; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; border-top-width: 0px;" src="$templatePath$/images/mored.jpg" width="182" height="28" /></a>
+
+
+ -------------------------------------------------------------------------------------------------------------------------------------------
+大队值班:
+
+  <script type="text/javascript">     function jrzbshow() {
+        var txtout = '';
+        var ddzb = "$leader$";
+        var ddzblist = ddzb.split(",");
+
+        for (var i = 0; i < 6; i += 3) {
+            txtout += "<tr>";
+
+            if (ddzblist[i]) {
+                txtout += '<td height = "30" align = "center"> ' + ddzblist[i] + ' </td> ';
+            }else
+            {
+
+                txtout += '<td align="center"></td>';
+            }
+            if (ddzblist[i + 1]) {
+                txtout += '<td align="center">' + ddzblist[i + 1] + '</td>';
+            }else
+            {
+
+                txtout += '<td align="center"></td>';
+            }
+            if (ddzblist[i + 2]) {
+                txtout += '<td align="center">' + ddzblist[i + 2] + '</td>';
+            }else
+            {
+                txtout += '<td align="center"></td>';
+
+            }
+            txtout += '</tr>';
+        }
+
+        document.write(txtout);
+    } </script>
+    <script type="text/javascript">       jrzbshow(); </script>
+
+
+ -------------------------------------------------------------------------------------------------------------------------------------------
+巡逻值班:
+
+  <script type="text/javascript">     function jrzbshow() {
+        var txtout = '';
+        var ddzb = "$policeman$";
+        var ddzblist = ddzb.split(",");
+
+        for (var i = 0; i < 6; i += 3) {
+            txtout += "<tr>";
+
+            if (ddzblist[i]) {
+                txtout += '<td height = "30" align = "center"> ' + ddzblist[i] + ' </td> ';
+            }else
+            {
+
+                txtout += '<td align="center"></td>';
+            }
+            if (ddzblist[i + 1]) {
+                txtout += '<td align="center">' + ddzblist[i + 1] + '</td>';
+            }else
+            {
+
+                txtout += '<td align="center"></td>';
+            }
+            if (ddzblist[i + 2]) {
+                txtout += '<td align="center">' + ddzblist[i + 2] + '</td>';
+            }else
+            {
+                txtout += '<td align="center"></td>';
+
+            }
+            txtout += '</tr>';
+        }
+
+        document.write(txtout);
+    } </script>
+    <script type="text/javascript">       jrzbshow(); </script>
+
+ -------------------------------------------------------------------------------------------------------------------------------------------
+
+ 业务应用导航:
+      <script type="text/javascript">
+                 function yqljShow(){
+                     var txt='<table width="0" border="0" cellspacing="3" cellpadding="0">';
+                     var nl='';
+                     var ul='';
+                     $DocList:{
+                         if(nl!='')
+                         {
+                             nl+=',$it.title$';
+                             ul+=',$it.url$';
+                         }
+                         else
+                         {
+                             nl+='$it.title$';
+                             ul+='$it.url$';
+                         }
+                     };separator="\n"$
+
+                     var nlist=nl.split(',');
+                     var ulist=ul.split(',');
+                     for(var z=0;z<nlist.length;z+=2)
+                     {
+
+                         if(nlist[z]!=null&ulist[z]!=null&nlist[z]!=""&ulist[z]!=!="") {
+                             txt+='<tr>'
+                             txt += '<td><table width="0" border="0" cellspacing="0" cellpadding="0" style="background:url($templatePath$/images/tb1.jpg) no-repeat; height:40px; width:108px;"><tr> <td align="center"><a href="' + ulist[z] + '"  class="zl" target="_blank">' + nlist[z] + '</a></td>    </tr>               </table></td>  ';
+
+
+                         if(nlist[z+1]!=null&ulist[z+1]!=null) {
+
+                             txt += '<td><table width="0" border="0" cellspacing="0" cellpadding="0" style="background:url($templatePath$/images/tb1.jpg) no-repeat; height:40px; width:108px;">  <tr>   <td align="center"> <a href="' + ulist[z+1] + '"  class="zl" target="_blank">' + nlist[z+1] + '</a></td>     </tr>   </table></td>';
+                         }else
+                         {
+                             txt += '<td></td>';
+
+                         }
+                             txt+='</tr>'
+                         }
+                     }
+
+                     txt+='</table>';
+                     document.write(txt);
+
+                 }
+
+     </script>
+     <script type="text/javascript">
+         yqljShow();
+     </script>
+
+
+
+ -------------------------------------------------------------------------------------------------------------------------------------------
+
+ 网站导航:
+
+  <table width="0" border="0" cellspacing="3" cellpadding="0">
+                $DocList:{  <tr>
+                   <td><table width="0" border="0" cellspacing="0" cellpadding="0" style="background:url($templatePath$/images/tb2.jpg) no-repeat; height:43px; width:190px;">
+                     <tr>
+                       <td align="center"><a style=" text-decoration:none" href="$it.url$">$it.title$</a></td>
+                     </tr>
+                   </table></td>
+                 </tr> };separator="\n"$
+
+
+               </table>
+ -------------------------------------------------------------------------------------------------------------------------------------------
+
+全国公安导航:
+
+ <select style="WIDTH: 150px" onchange="javascript:window.open(this.options[this.selectedIndex].value);this.options[0].selected=true;" >   <option>--全国公安网站导航--</option> $DocList:{ <option value="$it.url$">$it.title$</option>};separator="\n"$
+
+                  </select>
+
+
+  -------------------------------------------------------------------------------------------------------------------------------------------
+<select  style="WIDTH: 150px"  onchange="javascript:window.open(this.options[this.selectedIndex].value);this.options[0].selected=true;" >   <option>-----业务专题导航-----</option> $DocList:{ <option value="$it.url$">$it.title$</option>};separator="\n"$
+
+                  </select>
+
+  -------------------------------------------------------------------------------------------------------------------------------------------
+栏目页列表:
+
+
+<table width="937" border="0" cellspacing="0" cellpadding="0" style="margin-bottom:10px;">                $DocList:{
+
+
+   <tr>
+                <td width="27" height="24" align="center" class="db"><img src="$templatePath$/images/icon.jpg" width="9" height="9" /></td>
+                <td width="808" class="db"><a href="$it.url$"  title="$it.title$">$it.title$</a></td>
+                <td width="102" class="db">$it.pubdate$</td>
+              </tr>};separator="\n"$ </table>
+
+
+<table width="937" border="0" cellspacing="0" cellpadding="0" style="margin:8px auto;"> <tr><td align="center">$pageList$</td></tr></table>
+
+   -------------------------------------------------------------------------------------------------------------------------------------------
+通用底部:
+
+<table cellspacing="0" cellpadding="0" border="0">
+    <tbody>
+        <tr>
+            <td class="bai" height="50">单位：宁波市公安局海曙分局 &nbsp;&nbsp;&nbsp;&nbsp;技术支持：易灵软件</td>
+        </tr>
+    </tbody>
+</table>
+   -------------------------------------------------------------------------------------------------------------------------------------------
+
+
+   文章正文:
+
+
+   <table width="1000" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+       <tr>
+         <td width="756" valign="top"><table width="965" border="0" align="center" cellpadding="0" cellspacing="0"  style="margin:5px auto;TABLE-LAYOUT: fixed; ">
+           <tr>
+             <td height="60" colspan="2" align="center" class=" font16">$title$</td>
+           </tr>
+           <tr>
+             <td height="30" colspan="2" align="right" class="db"><strong>时间：</strong>$pubdate$　</td>
+           </tr>
+           <tr>
+             <td colspan="2" class="hg25 db" style="padding:5px 10px 0 10px; font-size:14px;" >　　$fcontentTxt$
+               <br />  <br />  <br />  <br /></td>
+           </tr>
+          <tr><td colspan="2"><br/>
+   $attachList$</td>
+   </tr>
+         </table></td>
+       </tr>
+     </table>
+   -------------------------------------------------------------------------------------------------------------------------------------------
+8.6更新
+<script type="text/javascript">     function jrzbshow() {
+    var txtout = '';
+    var ddzb = "$leader$";
+    var ddzblist = ddzb.split(",");
+
+    for (var i = 0; i < 6; i += 3) {
+        txtout += "<tr>";
+
+        if (ddzblist[i]) {
+            txtout += '<td height = "30" align = "center"> ' + ddzblist[i] + ' </td> ';
+        }else
+        {
+
+            txtout += '<td align="center"></td>';
+        }
+        if (ddzblist[i + 1]) {
+            txtout += '<td align="center">' + ddzblist[i + 1] + '</td>';
+        }else
+        {
+
+            txtout += '<td align="center"></td>';
+        }
+        if (ddzblist[i + 2]) {
+            txtout += '<td align="center">' + ddzblist[i + 2] + '</td>';
+        }else
+        {
+            txtout += '<td align="center"></td>';
+
+        }
+        txtout += '</tr>';
+    }
+
+    document.write(txtout);
+} </script>
+<script type="text/javascript">       jrzbshow(); </script>
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+<script type="text/javascript">     function jrzbshow() {
+    var txtout = '';
+    var ddzb = "$Monitor$";
+    var ddzblist = ddzb.split(",");
+
+    for (var i = 0; i < 6; i += 3) {
+        txtout += "<tr>";
+
+        if (ddzblist[i]) {
+            txtout += '<td height = "30" align = "center"> ' + ddzblist[i] + ' </td> ';
+        }else
+        {
+
+            txtout += '<td align="center"></td>';
+        }
+        if (ddzblist[i + 1]) {
+            txtout += '<td align="center">' + ddzblist[i + 1] + '</td>';
+        }else
+        {
+
+            txtout += '<td align="center"></td>';
+        }
+        if (ddzblist[i + 2]) {
+            txtout += '<td align="center">' + ddzblist[i + 2] + '</td>';
+        }else
+        {
+            txtout += '<td align="center"></td>';
+
+        }
+        txtout += '</tr>';
+    }
+
+    document.write(txtout);
+} </script>
+<script type="text/javascript">       jrzbshow(); </script>
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+<script type="text/javascript">     function jrzbshow() {
+    var txtout = '';
+    var ddzb2 = "$Monitor$";
+    var ddzblist2 = ddzb2.split(",");
+
+    for (var i = 0; i < 6; i += 3) {
+        txtout += "<tr>";
+
+        if (ddzblist2[i]) {
+            txtout += '<td height = "30" align = "center"> ' + ddzblist[i] + ' </td> ';
+        }else
+        {
+
+            txtout += '<td align="center"></td>';
+        }
+        if (ddzblist2[i + 1]) {
+            txtout += '<td align="center">' + ddzblist[i + 1] + '</td>';
+        }else
+        {
+
+            txtout += '<td align="center"></td>';
+        }
+        if (ddzblist2[i + 2]) {
+            txtout += '<td align="center">' + ddzblist[i + 2] + '</td>';
+        }else
+        {
+            txtout += '<td align="center"></td>';
+
+        }
+        txtout += '</tr>';
+    }
+
+    document.write(txtout);
+} </script>
+<script type="text/javascript">       jrzbshow(); </script>
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+<script type="text/javascript">     function jrzbshow() {
+    var txtout = '';
+    var ddzb = "$policeman$";
+    var ddzblist = ddzb.split(",");
+    var ddzblistmobile=("$policemanMobile$").split(",");
+    var ddzb2 = "$Monitor$";
+    var ddzblist2 = ddzb2.split(",");
+    var ddzblist2mobile=("$MonitorMobile$").split(",");
+   ddzblist2= ddzblist2.concat(ddzblist);
+    ddzblist2mobile=ddzblist2mobile.concat(ddzblistmobile);
+    for (var i = 0; i < 6; i += 3) {
+
+        txtout += "<tr>";
+        if (ddzblist2[i]) {
+            txtout += '<td height = "20"  align="left"><a title="虚拟手机号：'+ddzblist2mobile[i]+'">&nbsp;'+ddzblist2[i]+'</a>'  + ' </td> ';
+        }else
+        {
+
+            txtout += '<td align="center"></td>';
+        }
+        if (ddzblist2[i + 1]) {
+            txtout += '<td  align="left"><a title="虚拟手机号：' +ddzblist2mobile[i+1]+'">&nbsp;'+ddzblist2[i+1]+'</a>'+ '</td>';
+        }else
+        {
+
+            txtout += '<td align="center"></td>';
+        }
+        if (ddzblist2[i + 2]) {
+            txtout += '<td  align="center"><a title="虚拟手机号：' +ddzblist2mobile[i+2]+'">&nbsp;'+ddzblist2[i+2]+'</a>'+ '</td>';
+        }else
+        {
+            txtout += '<td align="center"></td>';
+
+        }
+       txtout += '</tr>';
+    }
+
+
+
+
+    document.write(txtout);
+} </script>
+<script type="text/javascript">       jrzbshow(); </script>
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+<script type="text/javascript">
+    function pkishow() {
+
+
+        var txtout = '';
+        if ('$isLogin$' == 'Y') {
+
+            txtout +=   '当前用户:管理员 <a href="/PolicePortal/Front/Index/LogExitXTJ">[注销]<a/> <a href="/PolicePortal/Admin/Login">[进入后台]</a>';
+
+
+        } else {
+
+
+            txtout += "<input type=\"button\" name=\" buttona \" id=\" buttona \" value=\"\" onclick=\" window.location.href = 'https://193.168.1.5/Admin/Login?url=http://10.119.31.1/SpyInformation/Admin/Index'\" class = \"pki\" > ";
+        }
+        document.write(txtout);
+
+    }
+</script>
+<script type="text/javascript">       pkishow(); </script>
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+<select style="WIDTH: 150px" onchange="javascript:window.open(this.options[this.selectedIndex].value);this.options[0].selected=true;" >   <option>--全国公安网站导航--</option> $DocList:{ <option value="$it.url$">$it.title$</option>};separator="\n"$
+
+</select>
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+<select  style="WIDTH: 150px"  onchange="javascript:window.open(this.options[this.selectedIndex].value);this.options[0].selected=true;" >   <option>--全省公安网站导航--</option> $DocList:{ <option value="$it.url$">$it.title$</option>};separator="\n"$
+
+</select>
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+<select  style="WIDTH: 150px"  onchange="javascript:window.open(this.options[this.selectedIndex].value);this.options[0].selected=true;" >   <option>--全市公安网站导航--</option> $DocList:{ <option value="$it.url$">$it.title$</option>};separator="\n"$
+
+</select>
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+<select  style="WIDTH: 150px"  onchange="javascript:window.open(this.options[this.selectedIndex].value);this.options[0].selected=true;" >   <option>-----业务专题导航-----</option> $DocList:{ <option value="$it.url$">$it.title$</option>};separator="\n"$
+
+</select>
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+登陆模块:
+
+
+
+<script type="text/javascript">
+    function pkishow() {
+
+
+        var txtout = '';
+        if ('$isLogin$' == 'Y') {
+
+            txtout +=   '当前用户:管理员 <a href="/PolicePortal/Front/Index/LogExitXTJ">[注销]<a/> <a href="/PolicePortal/Admin/Login">[进入后台]</a>';
+
+
+        } else {
+
+
+            txtout += "<input type=\"button\" name=\" buttona \" id=\" buttona \" value=\"\" onclick=\" window.location.href = 'https://193.168.1.5/Admin/Login?url=http://10.119.31.1/SpyInformation/Admin/Index'\" class = \"pki\" > ";
+        }
+        document.write(txtout);
+
+    }
+</script>
+<script type="text/javascript">       pkishow(); </script>
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;导航：<a style="color: white" href="http://www.ga/">公安部</a>&nbsp;&nbsp;&nbsp;&nbsp;<a style="color: white" href="http://www1.zj/pub/zjsgatnw/">省厅</a>&nbsp;&nbsp;&nbsp;&nbsp;<a style="color: white" href="http://10.119.1.11/Edit03/index.jsp">市局</a>
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+武装巡逻:
+
+
+<script type="text/javascript">     function wzxlshow() {
+
+    var dt= new Date();
+    var txtout = '<tr> <td colspan="3"> <table style="height: 100%">';
+    var  dttime='year='+dt.getFullYear()+'&month='+(dt.getMonth()+1)+'&day='+dt.getDate();
+    $DocList:{
+
+
+         txtout += '<tr style="height: 18px"><td colspan="1" width="30%" align="left" nowrap="nowrap">';
+
+       txtout += '<a href="http://193.168.1.201:810/Front/PatrolNewList/PatrolArmedOnDutyList?'+dttime+'" target="_blank"><font color="#1361a1">';
+       txtout +='$it.FPatrolTimeSpanName$'+'</font></a> </td> </td> <td colspan="1" width="35%" nowrap="nowrap">';
+
+         txtout += '<a href="http://193.168.1.201:810/Front/PatrolNewList/PatrolArmedOnDutyList?'+dttime+'" target="_blank"><font color="#1361a1">';
+        txtout +='&nbsp;$it.FPatrolAreaName$'+'：</font> </td> <td colspan="1"  nowrap="nowrap">';
+        var mobileList='$it.Mobile$'.split(',');
+        var FNameList='$it.FName$'.split(',');
+
+        if(FNameList[0]) {
+            txtout += '<a title="虚拟手机号：' + mobileList[0] + '">' + FNameList[0] + '&nbsp;&nbsp;</a></td>';
+        }
+        if(FNameList[1])
+        {
+            txtout +='<td colspan="1"  nowrap="nowrap"><a title="虚拟手机号：' + mobileList[1] + '">' + FNameList[1] + '&nbsp;</a></td>';
+
+        }
+              txtout +='</td> </tr>';
+            for(var y=2;y<mobileList.length;y+=2) {
+
+               txtout += '<tr style="height: 18px"><td colspan="2" align="center"></td><td   nowrap="nowrap">' +'<a title="虚拟手机号：'+ mobileList[y]+'">'+FNameList[y]+'&nbsp;</a></td><td  nowrap="nowrap">' +'<a title="虚拟手机号：'+ mobileList[y+1]+'">'+FNameList[y+1]+'&nbsp;</a></td></tr>';
+
+            }
+    };separator="\n"$
+
+    txtout += '</table> </td> </tr>'
+
+    document.write(txtout);
+}
+
+</script>
+
+<script type="text/javascript">       wzxlshow(); </script>
+
+
+测试:
+
+<table>
+    <tr>
+
+        <td colspan="1" width="30%">
+
+            <a href="/Front/PatrolNewList/PatrolArmedOnDutyList?year=@ViewData["year"]&month=@ViewData["month"]&day=@ViewData["day"]" target="_blank">
+            <font color="#1361a1">$it.FPatrolTimeSpanName$</font></a> </td>
+        </td>
+        <td colspan="1" width="20%">
+            <a href="/Front/PatrolNewList/PatrolArmedOnDutyList?year=@ViewData["year"]&month=@ViewData["month"]&day=@ViewData["day"]" target="_blank">
+            <font color="#1361a1">$it.FPatrolAreaName$：</font>
+
+        </td>
+        <td colspan="1">
+
+
+        </td>
+    </tr>
+
+</table>
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+值班1
+<td  colspan="1" align="left">
+
+    <a title="虚拟手机号：$leaderMobile$">&nbsp;$leader$
+</td><td  colspan="1" align="center">
+    <a href="#" onclick=" window.open('http://193.168.1.201:810/Front/OnDuty/GetXunTJOnDutyList?'+'year='+new Date().getFullYear()+'&month='+(new Date().getMonth()+1)+'&day='+new Date().getDate())"><font color="#1361a1">值班表</font></a>
+
+</td>
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+分局信息视图sql
+
+
+USE [PoliceOA_hsga2012]
+GO
+
+/****** Object:  View [dept].[v_DocumentALL]    Script Date: 08/08/2015 09:36:38 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+
+ALTER VIEW [dept].[v_DocumentALL]
+AS
+( SELECT    *
+FROM      ( SELECT    *
+FROM      ( SELECT    FDailyImportantMsgID AS FDocId ,
+NULL AS FDocClsCd ,
+'重大警情' AS FDocClsName ,
+FTitle ,
+FSubmitTime AS FPubDate ,
+'Y' AS FIsShowHomePage ,
+'A' AS FStatus ,
+'N' AS FRecycle ,
+FReportOrganizeNo AS FPubOrganizeNo ,
+'1' AS ClsType ,
+'/Front/FrontPageContent/GetDailyImpMsgContent?msgID='
++ CAST(FDailyImportantMsgID AS VARCHAR)
++ '&msgType='
++ CAST(MsgType AS VARCHAR) + '' AS FUrl
+FROM      v_DailyMsgAndDocument
+) AS A
+UNION ALL
+SELECT    *
+FROM      ( SELECT    FDocId ,
+FDocClsCd ,
+( SELECT    FDocClsName
+FROM      dbo.t_DocCls a
+WHERE     a.FDocClsCd = b.FDocClsCd
+) AS FDocClsName ,
+FTitle ,
+FPubDate ,
+FIsShowHomePage ,
+FStatus ,
+FRecycle ,
+FPubOrganizeNo ,
+'2' AS ClsType ,
+'/Front/FrontPageContent/DocumentContent?docID='
++ CAST(FDocId AS VARCHAR) AS FUrl
+FROM      t_Document b
+WHERE     FIsShowHomePage = 'Y' AND FDocClsCd='01'
+AND FStatus = 'A'
+AND FRecycle = 'N'
+) AS B
+UNION ALL
+SELECT    *
+FROM      ( SELECT    FDocId ,
+FPublicDocClassCd AS FDocClsCd ,
+( SELECT    FPublicDocClassName
+FROM      dbo.t_PublicDocClass a
+WHERE     a.FPublicDocClassCd = b.FPublicDocClassCd
+) AS FDocClsName ,
+FTitle ,
+FPubDate ,
+FIsShowHomePage ,
+FStatus ,
+FRecycle ,
+FDispatchOrganizeNo AS FPubOrganizeNo ,
+'3' AS ClsType ,
+'/Front/FrontPageContent/PublicDocContent?docID='
++ CAST(FDocId AS VARCHAR) AS FUrl
+FROM      t_PublicDocument b
+WHERE     FPublicDocClassCd IN (
+SELECT  FPublicDocClassCd
+FROM    t_PublicDocClass
+WHERE   FPrvPublicDocClassCd IN (
+SELECT  FPublicDocClassCd
+FROM    t_PublicDocClass ) )
+AND FIsShowHomePage = 'Y'
+AND FStatus = 'A'
+AND FRecycle = 'N'
+) AS C
+) AS D
+)
+
+
+
+
+GO
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+分局信息更新:
+<script type="text/javascript">
+
+    function fjxxshow() {
+
+        var txt = '<table width="349" border="0" cellspacing="0" cellpadding="0">';
+        var ClsTypeName = "";
+
+        $DocList:{
+        switch ('$it.ClsType$') {
+            case "1":
+            {
+                ClsTypeName = "公告";
+                break
+
+            }
+            case "2":
+
+            {
+                ClsTypeName = "通知";
+                break
+
+            }
+            case "3":
+
+            {
+                ClsTypeName = "文件";
+                break
+
+            }
+        }
+        txt+='  <tr> <td width="27" height="24" align="center" class="db"><img src="$templatePath$/images/icon.jpg" width="9" height="9" /></td> <td width="242"  class="db"><a href="$it.url$" target="_blank"  ><div style="width:230px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">';
+            txt+='['+ClsTypeName+']$it.title$</div></a></td> <td width="80" class="db">$it.pubdate$</td> </tr>'
+        };separator="\n"$
+        txt+='</table>';
+
+        document.write(txt);
+        }
+
+
+
+</script>
+<script type="text/javascript">
+
+    fjxxshow();
+</script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+
+
+    jQuery("#mrzb a").tooltip({
+
+    });
+})
+</script>
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+<style type="text/css">
+
+
+    .ui-tooltip {
+        padding: 8px;
+        position: absolute;
+        z-index: 9999;
+        max-width: 300px;
+        -webkit-box-shadow: 0 0 5px #aaa;
+        box-shadow: 0 0 5px #aaa;
+    }
+    /* Fades and background-images don't work well together in IE6, drop the image */
+    * html .ui-tooltip {
+        background-image: none;
+    }
+    body .ui-tooltip { border-width: 2px; }
+
+    .ui-widget { font-family: Lucida Grande, Lucida Sans, Arial, sans-serif; font-size: 1.1em; }
+    .ui-widget .ui-widget { font-size: 1em; }
+    .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Lucida Grande, Lucida Sans, Arial, sans-serif; font-size: 1em; }
+    .ui-widget-content { border: 1px solid #dddddd; background: #f2f5f7 url(images/ui-bg_highlight-hard_100_f2f5f7_1x100.png) 50% top repeat-x; color: #362b36; }
+    .ui-widget-content a { color: #362b36; }
+    .ui-widget-header { border: 1px solid #aed0ea; background: #deedf7 url(images/ui-bg_highlight-soft_100_deedf7_1x100.png) 50% 50% repeat-x; color: #222222; font-weight: bold; }
+    .ui-widget-header a { color: #222222; }
+
+
+</style>
+
+--------------------------------------------------------------------------------------------------
+
+<script type="text/javascript">
+    function yqljShow(){
+        var txt='<table width="0" border="0" cellspacing="3" cellpadding="0">';
+        var nl='';
+        var ul='';
+        $DocList:{
+            if(nl!='')
+            {
+                nl+=',$it.title$';
+                ul+=',$it.url$';
+            }
+            else
+            {
+                nl+='$it.title$';
+                ul+='$it.url$';
+            }
+        };separator="\n"$
+
+        var nlist=nl.split(',');
+        var ulist=ul.split(',');
+        for(var z=0;z<nlist.length;z+=2)
+        {
+
+            if(nlist[z]!=null&ulist[z]!=null) {
+                txt+='<tr>'
+                txt += '<td><table width="0" border="0" cellspacing="0" cellpadding="0" style="background:url($templatePath$/images/tb3.jpg) no-repeat; height:40px; width:108px;"><tr> <td align="center"><div style="width:80px;word-break: break-all;white-space: normal"  ><a href="' + ulist[z] + '"  class="zl" target="_blank">' + nlist[z] + '</a></div></td>    </tr>               </table></td>  ';
+
+
+                if(nlist[z+1]!=null&ulist[z+1]!=null) {
+
+                    txt += '<td><table width="0" border="0" cellspacing="0" cellpadding="0" style="background:url($templatePath$/images/tb3.jpg) no-repeat; height:40px; width:108px;">  <tr>   <td align="center"><div style="width:80px;word-break: break-all;white-space: normal"  > <a href="' + ulist[z+1] + '" class="zl" target="_blank">' + nlist[z+1] + '</a></div></td>     </tr>   </table></td>';
+                }else
+                {
+                    txt += '<td></td>';
+
+                }
+                txt+='</tr>'
+            }
+        }
+
+        txt+='</table>';
+        document.write(txt);
+
+    }
+
+</script>
+<script type="text/javascript">
+    yqljShow();
+</script>
+
+
+-----------------------------------------------------------------------------------------
+登陆模块:
+
+
+
+
+
+
+<script type="text/javascript">
+    function pkishow() {
+
+
+        var txtout = '';
+        if ('$isLogin$' == 'Y') {
+
+            txtout +=   '当前用户:$UserName$ <a href="/PolicePortal/Front/Index/LogExitXTJ">[注销]<a/> <a href="/PolicePortal/Admin/Login">[进入后台]</a>';
+           if('$isDiary$'=='Y')
+           {
+
+
+               window.showModelessDialog("/PolicePortal/Admin/Diary?WindowType=2","","dialogWidth:600px;dialogHeight:210px;resizable:no;status:yes;scroll:no;")
+           }
+
+        } else {
+
+
+            txtout += "<input type=\"button\" name=\" buttona \" id=\" buttona \" value=\"\" onclick=\" window.location.href = 'https://193.168.1.5/Admin/Login?url=http://10.119.31.1/SpyInformation/Admin/Index'\" class = \"pki\" > ";
+        }
+        document.write(txtout);
+
+    }
+</script>
+<script type="text/javascript">       pkishow(); </script>
+
+
+------------------------------------------------------------------------------------
+栏目:
+<table width="349" border="0" cellspacing="0" cellpadding="0" >               $DocList:{<tr>
+    <td width="27" height="24" align="center" class="db"><img src="$templatePath$/images/icon.jpg" width="9" height="9" /></td>
+    <td width="242"  class="db"><a href="$it.url$" target="_blank"  ><div style='width:230px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis'>$it.title$</div></a></td>
+    <td width="80" class="db">$it.pubdate$</td>
+</tr>};separator="\n"$ </table>
+------------------------------------------------------------------------------------
+业务提醒:
+
+<script type="text/javascript">
+function ywtxshow()
+{
+
+    var txtout = '<table class="DocTableThin1" width="704" border="0" cellspacing="0" cellpadding="0" style="margin:10px auto;"> <tr > <td height="30" align="center" bgcolor="#4baadc"  style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc; font-weight: bolder;color: white;width:80px">工作类别</td> <td align="center" bgcolor="#4baadc" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc; font-weight: bolder;color: white;width:250px">标题</td> <td align="center" bgcolor="#4baadc" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc; font-weight: bolder;color: white;width:80px">提醒时间</td> <td align="center" bgcolor="#4baadc" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc; font-weight: bolder;color: white;width:80px">完成时间</td> <td align="center" bgcolor="#4baadc" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc; font-weight: bolder;color: white;width:200px">责任人</td> <td align="center" bgcolor="#4baadc" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc; font-weight: bolder;color: white;width:80px">是否回复</td> </tr>';
+    $DocList:{
+   txtout+='   <tr id="$it.FDeptTaskID$" style=" border-left: 1px solid #ccc;"> <td height="20" align="center" bgcolor="white" style="border: 1px solid #ccc;font-size: 12px; color:black">'+'$it.FDeptTaskWorkType$'+'</td> <td align="center" bgcolor="white" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc;font-size: 12px; color:black">'+'$it.FDeptTaskTitle$'+'</td> <td align="center" bgcolor="white" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc;font-size: 12px; color:black">'+'$it.FDeptTaskDate$'+'</td> <td align="center" bgcolor="white" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc;font-size: 12px;  color:black">'+'$it.FDeptTaskEndDate$'+'</td> <td align="center" bgcolor="white" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc;font-size: 12px;  color:black"><div style="width:188px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">'+'$it.FLogName$'+'</div></td> <td align="center" bgcolor="white" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc;font-size: 12px;  color:black">'+'$it.isFeedBack$'+'</td> </tr>';
+
+    };separator="\n"$
+    txtout+='</table>';
+
+    document.write(txtout);
+
+
+    jQuery(".DocTableThin1").find("td").each(function () {
+        var FDeptTaskID = jQuery(this).parent("tr").attr("id");
+        var elem = jQuery(this);
+
+        jQuery(this).unbind("click").bind("click", function () {
+
+
+            window.open('/PolicePortal/Front/DeptTaskLook/DeptTaskLook?FDeptTaskID=' + FDeptTaskID + "&s=" + Math.random());
+
+        });
+        jQuery(this).hover(function () {
+            elem.css({ "text-decoration": "underline" });
+
+        }, function () {
+            elem.css({ "text-decoration": "none" });
+
+        })
+
+    });
+
+}
+</script>
+<script type="text/javascript">       ywtxshow(); </script>
+
+------------------------------------------------------------------------------------
+工作督办:
+<script type="text/javascript">
+    function ywtxshow2()
+    {
+
+        var txtout = '<table class="DocTableThin2" width="704" border="0" cellspacing="0" cellpadding="0" style="margin:10px auto;"> <tr > <td height="30" align="center" bgcolor="#4baadc"  style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc; font-weight: bolder;color: white;width:80px">工作类别</td> <td align="center" bgcolor="#4baadc" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc; font-weight: bolder;color: white;width:250px">标题</td> <td align="center" bgcolor="#4baadc" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc; font-weight: bolder;color: white;width:80px">提醒时间</td> <td align="center" bgcolor="#4baadc" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc; font-weight: bolder;color: white;width:80px">完成时间</td> <td align="center" bgcolor="#4baadc" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc; font-weight: bolder;color: white;width:200px">责任人</td> <td align="center" bgcolor="#4baadc" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc; font-weight: bolder;color: white;width:80px">是否回复</td> </tr>';
+        $DocList:{
+            txtout+='   <tr id="$it.FDeptTaskID$" style=" border-left: 1px solid #ccc;"> <td height="20" align="center" bgcolor="white" style="border: 1px solid #ccc;font-size: 12px; color:black">'+'$it.FDeptTaskWorkType$'+'</td> <td align="center" bgcolor="white" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc;font-size: 12px; color:black">'+'$it.FDeptTaskTitle$'+'</td> <td align="center" bgcolor="white" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc;font-size: 12px; color:black">'+'$it.FDeptTaskDate$'+'</td> <td align="center" bgcolor="white" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc;font-size: 12px;  color:black">'+'$it.FDeptTaskEndDate$'+'</td> <td align="center" bgcolor="white" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc;font-size: 12px;  color:black"><div style="width:188px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">'+'$it.FLogName$'+'</div></td> <td align="center" bgcolor="white" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc;font-size: 12px;  color:black">'+'$it.isFeedBack$'+'</td> </tr>';
+
+        };separator="\n"$
+        txtout+='</table>';
+
+        document.write(txtout);
+
+
+        jQuery(".DocTableThin2").find("td").each(function () {
+            var FDeptTaskID = jQuery(this).parent("tr").attr("id");
+            var elem = jQuery(this);
+
+            jQuery(this).unbind("click").bind("click", function () {
+
+
+                window.open('/PolicePortal/Front/DeptTaskLook/DeptTaskLook?FDeptTaskID=' + FDeptTaskID + "&s=" + Math.random());
+
+            });
+            jQuery(this).hover(function () {
+                elem.css({ "text-decoration": "underline" });
+
+            }, function () {
+                elem.css({ "text-decoration": "none" });
+
+            })
+
+        });
+
+    }
+</script>
+<script type="text/javascript">       ywtxshow2(); </script>
+
+
+
+------------------------------------------------------------------------------------
+图片新闻new:
+
+<script type="text/javascript">
+    function picShowss(){
+        var ImgCount ='5';
+        var focus_width = 364;
+        var focus_height = 235;
+        var text_height = 20;
+        var swf_height = focus_height + text_height;
+        var pics = '';
+        var links = '';
+        var texts = '';
+        function addTxt(url, img, title) {
+            if (pics != '') {
+                pics = "|" + pics;
+                links = "|" + links;
+                texts = "|" + texts;
+            }
+            pics = escape(img) + pics;
+            links = escape(url) + links;
+            texts = title + texts;
+
+        }
+        if (ImgCount > 6) {
+            ImgCount = 6;
+        }
+
+        $DocList:{addTxt('$it.url$', '$it.filepath$', '$it.title$');};separator="\n"$
+
+        var txt = '<embed src="/PolicePortal/Content/images/Front/frontlunbo/pic.swf" wmode="opaque" FlashVars="pics=' + pics + '&links=' + links + '&texts=' + texts + '&borderwidth=' + focus_width + '&borderheight=' + focus_height + '&textheight=' + text_height + '" menu="false"    quality="high" bgcolor="#E0E0E0" width="' + focus_width + '" height="' + swf_height + '" allowScriptAccess="sameDomain" type="application/x-shockwave-flash"/>';
+        document.write(txt);
+    }
+</script>
+<script type="text/javascript">
+    picShowss();
+</script>
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+<script type="text/javascript">
+
+
+    function a()
+    {
+
+        window.open("http://193.168.1.201:8088/PolicePortal/Front/DeptTaskLook?FDeptTaskType=1&IsFeedback=A", "", "height=650,width=850,status=no,toolbar=yes,menubar=yes,location=no");
+
+    }
+</script>
+-------------------------------------------------------------------------------------------------------------------------------------------
+<div   style="float: left;margin-left: 10px;" >
+    <a  href="javascript:void( window.open('http://193.168.1.201:8088/PolicePortal/Front/DeptTaskLook/index?id=1&FDeptTaskType=1&IsFeedback=N', '_blank', 'height=650,width=850,status=no,toolbar=yes,menubar=yes,location=no'))"  style="color:#B8E6FE; text-decoration: none">未回复·</a>'
+    <a  href="javascript: void(window.open('http://193.168.1.201:8088/PolicePortal/Front/DeptTaskLook/index?id=1&FDeptTaskType=1&IsFeedback=Y', '_blank', 'height=650,width=850,status=no,toolbar=yes,menubar=yes,location=no'))"  style="color:#B8E6FE; text-decoration: none">已回复·</a>
+    <a  href="javascript:void( window.open('http://193.168.1.201:8088/PolicePortal/Front/DeptTaskLook/index?id=1&FDeptTaskType=1&IsFeedback=A', '_blank', 'height=650,width=850,status=no,toolbar=yes,menubar=yes,location=no'))"  style="color:#B8E6FE; text-decoration: none">全部</a>
+</div>
+
+<div   style="float: left;margin-left: 10px;" >
+    <a  href="javascript:void( window.open('http://193.168.1.201:8088/PolicePortal/Front/DeptTaskLook/index?id=1&FDeptTaskType=2&IsFeedback=N', '_blank', 'height=650,width=850,status=no,toolbar=yes,menubar=yes,location=no'))"  style="color:#B8E6FE; text-decoration: none">未回复·</a>'
+    <a  href="javascript: void(window.open('http://193.168.1.201:8088/PolicePortal/Front/DeptTaskLook/index?id=1&FDeptTaskType=2&IsFeedback=Y', '_blank', 'height=650,width=850,status=no,toolbar=yes,menubar=yes,location=no'))"  style="color:#B8E6FE; text-decoration: none">已回复·</a>
+    <a  href="javascript:void( window.open('http://193.168.1.201:8088/PolicePortal/Front/DeptTaskLook/index?id=1&FDeptTaskType=2&IsFeedback=A', '_blank', 'height=650,width=850,status=no,toolbar=yes,menubar=yes,location=no'))"  style="color:#B8E6FE; text-decoration: none">全部</a>
+</div>
+
+
+------------------------------------------------------------------------------------------
+在最外table的最后一个td上:
+
+
+
+<table width="742" border="0" cellpadding="0" cellspacing="0" style="margin-bottom:7px;">
+    <tr>
+        <td width="800" style="background:url($templatePath$/images/title.jpg) repeat-x" class="title"><!--beginunit name=业务提醒 -->
+            业务提醒
+            <!--endunit -->
+        </td>
+        <td width="182" align="right" valign="middle" style="background:url($templatePath$/images/tr.jpg) no-repeat right; width:182px; height:28px; line-height:28px;" class="more"><!--beginunit name=业务提醒更多 -->
+            业务提醒更多
+            <!--endunit --></td>
+    </tr>
+    <tr>
+        <td height="127" colspan="2" valign="top" class="bk"><!--beginunit name=业务提醒内容 -->
+            业务提醒内容
+            <!--endunit -->
+        </td>
+    </tr>
+</table>
+
+
+
+<table width="742" border="0" cellpadding="0" cellspacing="0" style="margin-bottom:7px;">
+    <tr>
+        <td width="800" style="background:url($templatePath$/images/title.jpg) repeat-x" class="title"><!--beginunit name=工作督办 -->
+            工作督办
+            <!--endunit -->
+        </td>
+        <td width="182" align="right" valign="middle" style="background:url($templatePath$/images/tr.jpg) no-repeat right; width:182px; height:28px; line-height:28px;" class="more"><!--beginunit name=工作督办更多 -->
+            工作督办更多
+            <!--endunit --></td>
+    </tr>
+    <tr>
+        <td height="127" colspan="2" valign="top" class="bk"><!--beginunit name=工作督办内容 -->
+            工作督办内容
+            <!--endunit -->
+        </td>
+    </tr>
+</table>
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------
+
+首页弹出框:
+
+
+
+
+<script type="text/javascript">
+    function tckShow(){
+
+        var nl='';
+        var ul='';
+        $DocList:{
+            if(nl!='')
+            {
+                nl+=',$it.title$';
+                ul+=',$it.url$';
+            }
+            else
+            {
+                nl+='$it.title$';
+                ul+='$it.url$';
+            }
+        };separator="\n"$
+
+        var nlist=nl.split(',');
+        var ulist=ul.split(',');
+        for(var z=0;z<nlist.length;z++)
+        {
+
+            if(nlist[z]!=null&ulist[z]!=null&nlist[z]!=""&ulist[z]!="") {
+                window.showModelessDialog(ulist[z],"","dialogWidth:600px;dialogHeight:510px;resizable:no;status:yes;scroll:no;")
+            }
+        }
+
+
+
+    }
+
+</script>
+<script type="text/javascript">
+    tckShow();
+</script>
+
+

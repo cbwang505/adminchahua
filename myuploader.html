@@ -1,0 +1,395 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+
+    <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="js/swfupload.js"></script>
+    <script type="text/javascript" src="js/media_handlers.js"></script>
+    <script type="text/javascript">
+        var swfu;
+        $(document).ready(function () {
+
+
+            var settings = {
+
+                // flash_url:  rootPath + "/Scripts/SWFUpload/swf/swfupload.swf",
+                flash_url: "js/swfupload.swf", // Relative to this file
+                upload_url: "/Scripts/SWFUpload/swfupload/swfupload.swf",
+                file_size_limit: "2147483648",
+                file_types: "*",
+                file_types_description: "Web Image Files",
+                file_upload_limit: "10",
+                file_queue_limit: 0,
+                custom_settings: {
+                    progressTarget: "fsUploadProgress",
+                    cancelButtonId: "btnCancel",
+                    uploadButtonId: "btnUpload",
+                    myFileListTarget: "idFileList"
+                },
+                debug: false,
+
+                auto_upload: false,
+                //use_query_string:false,
+                //post_params:{"tt":"1234"},
+                // Button Settings
+                button_image_url: "http://localhost:63342/chahua3324/images/t06.png",   // Relative to the SWF file
+                button_placeholder_id: "spanButtonPlaceholder",
+                button_width: 61,
+                button_height: 22,
+                button_text: '',
+                // The event handler functions are defined in handlers.js
+                swfupload_loaded_handler: swfUploadLoaded,
+                //file_queued_handler: fileQueued,
+                file_queued_handler: fileQueuedEvent, //�Լ����ӵ��¼�ִ�з�����Ĭ��Ϊ��һ�����!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                file_queue_error_handler: fileQueueError,
+                //file_dialog_complete_handler: fileDialogComplete,
+                file_dialog_complete_handler: fileDialogCompleteEvent, //�Լ����ӵ��¼�ִ�з�����Ĭ��Ϊ��һ�����!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                upload_start_handler: uploadStart,
+                upload_progress_handler: uploadProgress,
+                upload_error_handler: uploadError,
+                upload_success_handler: uploadSuccess,
+                upload_complete_handler: uploadComplete,
+                queue_complete_handler: queueComplete, // Queue plugin event
+
+                // SWFObject settings
+
+                swfupload_pre_load_handler: swfUploadPreLoad,
+                swfupload_load_failed_handler: swfUploadLoadFailed
+
+            };
+
+
+            swfu = new SWFUpload(settings);
+        });
+
+
+        function fileQueuedEvent(file) {
+            try {
+                var fileListID = this.customSettings.myFileListTarget;
+                FileProgress(file, fileListID, this);
+
+                var _dirid = $('#hidDirID').val();
+                if (_dirid != "0") //�����������ϴ�ͼƬ���жϵ�ǰĿ¼���Ƿ��д�����ͬ���ļ�����
+                {
+                    existsFileName(file, fileListID, _dirid);
+                }
+
+            } catch (ex) {
+                this.debug(ex);
+            }
+        }
+
+
+        //�ж������Ƿ����
+        function existsFileName(file, fileListID, _dirid) {
+            $.ajax({
+                type: 'POST',
+                url: 'managerDocAjax.ashx',
+                data: {modestr: 'existsFileName', dirid: _dirid, filename: file.name},
+                success: function (result) {
+                    if (result == "T") {
+                        fileCancel(file, fileListID, "��ǰĿ¼���Ѵ���");
+                        //alert(file.name + " �ļ��ڵ�ǰĿ¼���Ѵ���,���ļ��ѱ�ȡ��!");
+                    }
+                }
+            });
+        }
+
+        function fileDialogCompleteEvent(selectedNum, queuedNum) {
+            if (queuedNum > 0) {
+                var queuedCount = swfu.getStats().files_queued; //���ϴ������е��ļ���
+                var uploadsCount = swfu.getStats().successful_uploads; //�Ѿ��ϴ��ɹ����ļ���
+                var cancelledCount = swfu.getStats().upload_cancelled; //�˳��ϴ����ļ���
+
+                var fileListID = this.customSettings.myFileListTarget;
+                var count = queuedCount + uploadsCount + cancelledCount;
+                var _f, _f1;
+                for (var i = 0; i < count - 1; i++) {
+                    _f = swfu.getFile(i);
+                    if (_f.filestatus == -1) {
+                        for (var j = i + 1; j < count; j++) {
+                            _f1 = swfu.getFile(j);
+                            if (_f1.filestatus == -1) {
+                                if (_f1.name == _f.name) {
+                                    fileCancel(_f1, fileListID, "�ϴ��б����Ѵ���");
+                                    //alert(_f1.name + " �ļ����ϴ��б����Ѵ���,���ļ��ѱ�ȡ��!");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        function fileCancel(file, fileListID, _errInfo) {
+            swfu.cancelUpload(file.id);
+            var tr = document.getElementById(file.id);
+            tr.style.color = "red";
+            var bar = document.getElementById(file.id + "_bar");
+            var errInfo = _errInfo;
+            bar.parentNode.innerHTML = errInfo;
+            var delObject = document.getElementById(file.id + "_del");
+            delObject.parentNode.innerHTML = "&nbsp;";
+            document.getElementById(fileListID + "Count").innerHTML = swfu.getStats().files_queued;
+        }
+
+
+        function UploadFile() {
+            swfu.startUpload();
+        }
+
+
+        <
+        script
+        type = "text/javascript" >
+                function yqljShow() {
+                    var txt = '<table width="0" border="0" cellspacing="3" cellpadding="0">';
+                    var nl = '';
+                    var ul = '';
+                    $DocList:{
+                        if (nl != '') {
+                            nl += ',$it.title$';
+                            ul += ',$it.url$';
+                        }
+                        else {
+                            nl += '$it.title$';
+                            ul += '$it.url$';
+                        }
+                    }
+                    ;
+                    separator = "\n"
+                    $
+
+                    var nlist = nl.split(',');
+                    var ulist = ul.split(',');
+                    for (var z = 0; z < nlist.length; z += 2) {
+
+                        if (nlist[z] != null & ulist[z] != null) {
+                            txt += '<tr>'
+                            txt += '<td><table width="0" border="0" cellspacing="0" cellpadding="0" style="background:url($templatePath$/images/tb1.jpg) no-repeat; height:40px; width:108px;"><tr> <td align="center"><a href="' + ulist[z] + '"  class="zl" target="_blank">' + nlist[z] + '</a></td>    </tr>               </table></td>  ';
+
+
+                            if (nlist[z + 1] != null & ulist[z + 1] != null) {
+
+                                txt += '<td><table width="0" border="0" cellspacing="0" cellpadding="0" style="background:url($templatePath$/images/tb1.jpg) no-repeat; height:40px; width:108px;">  <tr>   <td align="center"> <a href="' + ulist[z + 1] + '"  class="zl" target="_blank">' + nlist[z + 1] + '</a></td>     </tr>   </table></td>';
+                            } else {
+                                txt += '<td></td>';
+
+                            }
+                            txt += '</tr>'
+                        }
+                    }
+
+                    txt += '</table>';
+                    document.write(txt);
+
+                }
+
+    </script>
+    <script type="text/javascript">
+        yqljShow();
+    </script>
+
+
+    <script type="text/javascript">     function jrzbshow() {
+        var txtout = '<table width="215" border="0" cellspacing="0" cellpadding="0"> <tr>  <td height="35" colspan="3" class="font14"><strong>���ֵ�ࣺ</strong></td> </tr> ';
+        var ddzb = "$leader$";
+        var ddzblist = ddzb.split(",");
+        var xlzb = "$policeman$";
+        var xlzblist = xlzb.split(",");
+        for (var i = 0; i < ddzblist.length; i += 3) {
+            txtout += "<tr>";
+            txtout += '<td height = "30" align = "center"> ' + ddzblist[i] + ' </td> ';
+            if (ddzblist[i + 1]) {
+                txtout += '<td align="center">' + ddzblist[i + 1] + '</td>';
+            }
+            if (ddzblist[i + 2]) {
+                txtout += '<td align="center">' + ddzblist[i + 2] + '</td>';
+            }
+            txtout += '</tr>';
+        }
+        txtout += '</tr><tr> <td height=" 35 " colspan="3" class="font14"><strong>Ѳ��ֵ�ࣺ</strong></td> </tr> ';
+        for (var i = 0; i < xlzblist.length; i += 3) {
+            txtout += '<tr>';
+            txtout += '<td height = "30" align = "center" > ' + xlzblist[i] + ' </td> ';
+            if (xlzblist[i + 1]) {
+                txtout += '<td align="center">' + xlzblist[i + 1] + '</td>';
+            }
+            if (xlzblist[i + 2]) {
+                txtout += '<td align="center">' + xlzblist[i + 2] + '</td>';
+            }
+            txtout += '</tr>';
+        }
+        txtout += '</table>';
+        document.write(txtout);
+    } </script>
+    <script type="text/javascript">       jrzbshow(); </script>
+
+
+    <script type="text/javascript">     function jrzbshow() {
+        var txtout = '';
+        var ddzb = "$leader$";
+        var ddzblist = ddzb.split(",");
+
+        for (var i = 0; i < 6; i += 3) {
+            txtout += "<tr>";
+
+            if (ddzblist[i]) {
+                txtout += '<td height = "30" align = "center"> ' + ddzblist[i] + ' </td> ';
+            } else {
+
+                txtout += '<td align="center"></td>';
+            }
+            if (ddzblist[i + 1]) {
+                txtout += '<td align="center">' + ddzblist[i + 1] + '</td>';
+            } else {
+
+                txtout += '<td align="center"></td>';
+            }
+            if (ddzblist[i + 2]) {
+                txtout += '<td align="center">' + ddzblist[i + 2] + '</td>';
+            } else {
+                txtout += '<td align="center"></td>';
+
+            }
+            txtout += '</tr>';
+        }
+
+        document.write(txtout);
+    } </script>
+
+
+
+
+
+
+
+    <script type="text/javascript">       jrzbshow(); </script>
+
+
+    <script type="text/javascript">
+        function pkishow() {
+
+
+            var txtout = '';
+            if ('$isLogin$' == 'Y') {
+
+                txtout +=   '当前用户:管理员 <a href="/PolicePortal/Front/Index/LogExitXTJ">[注销]<a/> <a href="/PolicePortal/Admin/Login">[进入后台]</a>';
+
+
+            } else {
+
+
+                txtout += "<input type=\"button\" name=\" buttona \" id=\" buttona \" value=\"\" onclick=\" window.location.href = 'https://193.168.1.5/Admin/Login?url=http://10.119.31.1/SpyInformation/Admin/Index'\" class = \"pki\" > ";
+            }
+            document.write(txtout);
+
+        }
+    </script>
+    <script type="text/javascript">       pkishow(); </script>
+
+
+
+
+
+
+
+
+
+
+
+    <div id="clock"  style="color: white">
+        正在加载时间，请稍候...</div>
+
+
+    <script type="text/javascript">
+        function clockadd(obj) {
+            if (typeof (obj) == "string") obj = o.o(obj);
+            if (!obj) return;
+            window.setInterval(function () {
+                var now = new Date();
+                var day = now.getDay();
+                dateString = now.toLocaleString();
+                if (dateString.indexOf('星期') < 0) dateString += ' 星期' + '日一二三四五六'.charAt(day);
+                obj.innerHTML = dateString;
+            }, 1000);
+        }
+    </script>
+    <script type="text/javascript">      clockadd(document.getElementById("clock")); </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        function yqljShow(){
+            var txt='<table width="0" border="0" cellspacing="3" cellpadding="0">';
+            var nl='';
+            var ul='';
+            $DocList:{
+                if(nl!='')
+                {
+                    nl+=',$it.title$';
+                    ul+=',$it.url$';
+                }
+                else
+                {
+                    nl+='$it.title$';
+                    ul+='$it.url$';
+                }
+            };separator="\n"$
+
+            var nlist=nl.split(',');
+            var ulist=ul.split(',');
+            for(var z=0;z<nlist.length;z+=2)
+            {
+
+                if(nlist[z]!=null&ulist[z]!=null&nlist[z]!=""&ulist[z]!="") {
+                    txt+='<tr>'
+                    txt += '<td><table width="0" border="0" cellspacing="0" cellpadding="0" style="background:url($templatePath$/images/tb1.jpg) no-repeat; height:40px; width:108px;"><tr> <td align="center"><a href="' + ulist[z] + '"  class="zl" target="_blank">' + nlist[z] + '</a></td>    </tr>               </table></td>  ';
+
+
+                    if(nlist[z+1]!=null&ulist[z+1]!=null) {
+
+                        txt += '<td><table width="0" border="0" cellspacing="0" cellpadding="0" style="background:url($templatePath$/images/tb1.jpg) no-repeat; height:40px; width:108px;">  <tr>   <td align="center"> <a href="' + ulist[z+1] + '"  class="zl" target="_blank">' + nlist[z+1] + '</a></td>     </tr>   </table></td>';
+                    }else
+                    {
+                        txt += '<td></td>';
+
+                    }
+                    txt+='</tr>'
+                }
+            }
+
+            txt+='</table>';
+            document.write(txt);
+
+        }
+
+    </script>
+    <script type="text/javascript">
+        yqljShow();
+    </script>
+</head>
+<body>
+<div>
+
+    <div id="content">
+
+        <span id="spanButtonPlaceholder"><img src="images/t06.png"/></span>
+    </div>
+</div>
+</body>
+</html>

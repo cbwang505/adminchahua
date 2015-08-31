@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+    <title></title>
+
+    <script type="text/javascript"  src="js/jquery-1.8.2.js" ></script>
+    <script type="text/javascript"  src="js/myupload.js" ></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $("#spanButtonPlaceholder").myuploader(
+                    {
+                        replaceControls:".rp",
+                        swf: "js/swfupload.swf",
+                        destUrl: "http://localhost:13116/Admin/Document/DocumentUploadSave",
+                        progressTarget: "fsUploadProgress",
+                        cancelButtonId: "btnCancel",
+                        uploadButtonId: "UploadFile",
+                        myFileListTarget: "idFileList",
+                        button_image_url: "images/t06.png"
+                    }
+            );
+
+        })
+
+
+    </script>
+</head>
+<body>
+<table width="100%" cellspacing="4" cellpadding="4" border="0" bgcolor="#FCFCFC">
+    <tr>
+        <td class="DH1">
+            <table width="100%" cellspacing="4" cellpadding="4" border="0" bgcolor="#FCFCFC">
+                <tr>
+                    <td class="DH2">
+                        <strong>@ViewData["DesTitle"]</strong> </td>
+                    <td class="DH2" align="right">
+                    </td>
+                </tr>
+            </table>
+            <div id="content">
+                <form id="form1" enctype="multipart/form-data">
+                    <span id="spanButtonPlaceholder"></span>
+                    <table id="idFileList" class="uploadFileList">
+                        <tr class="uploadTitle">
+                            <td>
+                                <b>文件名</b></td>
+                            <td>
+                                <b>文件大小</b></td>
+                            <td width="100px">
+                                <b>状态</b></td>
+                            <td width="35px">
+                                &nbsp;</td>
+                        </tr>
+                    </table>
+                    等待上传 <span id="idFileListCount">0</span> 个 ，成功上传 <span id="idFileListSuccessUploadCount">0</span> 个
+                    <br />
+                    <br />
+                    <div id="divSWFUploadUI" style="visibility: hidden;">
+                    </div>
+                </form>
+            </div>
+
+            <ul>
+                <li ><span class=".rp"> </span></li>
+                <li><span class=".rp"> </span></li>
+                <li><span class=".rp"> </span></li>
+            </ul>
+            <table width="90%" cellspacing="0" cellpadding="0" border="0"  ">
+    <tr>
+        <td colspan="2">
+        <a style="width:80px;word-break: break-all;white-space: normal"></a>
+            <input id="UploadFile" type="button" value="开始上传" class="btn"  />
+            <input id="btnCancel" type="button" value="取消全部上传" disabled="disabled" class="btn" />
+        </td>
+    </tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

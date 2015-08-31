@@ -229,44 +229,16 @@ SWFUpload.prototype.loadFlash = function () {
 // Private: getFlashHTML generates the object tag needed to embed the flash in to the document
 SWFUpload.prototype.getFlashHTML = function () {
 	// Flash Satay object syntax: http://www.alistapart.com/articles/flashsatay
-//	return ['<object id="', this.movieName, '" type="application/x-shockwave-flash" data="', this.settings.flash_url, '" width="', this.settings.button_width, '" height="', this.settings.button_height, '" class="swfupload">',
-//				'<param name="wmode" value="', this.settings.button_window_mode, '" />',
-//				'<param name="movie" value="', this.settings.flash_url, '" />',
-//				'<param name="quality" value="high" />',
-//				'<param name="menu" value="false" />',
-//				'<param name="allowScriptAccess" value="always" />',
-//				'<param name="flashvars" value="' + this.getFlashVars() + '" />',
-    //    			'</object>'].join("");
 
 
-
-//    var classid = "";
-//    var Sys = {};
-//    var ua = navigator.userAgent.toLowerCase();
-//    if (window.ActiveXObject)
-//        Sys.ie = ua.match(/msie ([\d.]+)/)[1]
-//    if (Sys.ie && Sys.ie.substring(0, 1) == "9") {
-//        classid = ' classid = "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"';
-//    }
-//    return ['<object', classid, ' id="', this.movieName, '" type="application/x-shockwave-flash" data="', (this.support.imageResize ? this.settings.flash_url : this.settings.flash9_url), '" width="', this.settings.button_width, '" height="', this.settings.button_height, '" class="swfupload">',
-//     '<param name="wmode" value="', this.settings.button_window_mode, '" />',
-//     '<param name="movie" value="', (this.support.imageResize ? this.settings.flash_url : this.settings.flash9_url), '" />',
-//     '<param name="quality" value="high" />',
-//     '<param name="allowScriptAccess" value="always" />',
-//     '<param name="flashvars" value="' + this.getFlashVars() + '" />',
-//     '</object>'].join("");
-
-
-
-
-    return ['<object id="', this.movieName, '" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" type="application/x-shockwave-flash" data="', this.settings.flash_url, '" width="', this.settings.button_width, '" height="', this.settings.button_height, '" class="swfupload">',
-				'<param name="wmode" value="', this.settings.button_window_mode, '" />',
-				'<param name="movie" value="', this.settings.flash_url, '" />',
-				'<param name="quality" value="high" />',
-				'<param name="menu" value="false" />',
-				'<param name="allowScriptAccess" value="always" />',
-				'<param name="flashvars" value="' + this.getFlashVars() + '" />',
-				'</object>'].join("");
+	return ['<object id="', this.movieName, '" type="application/x-shockwave-flash" data="', this.settings.flash_url, '" width="', this.settings.button_width, '" height="', this.settings.button_height, '" class="swfupload">',
+		'<param name="wmode" value="', this.settings.button_window_mode, '" />',
+		'<param name="movie" value="', this.settings.flash_url, '" />',
+		'<param name="quality" value="high" />',
+		'<param name="menu" value="false" />',
+		'<param name="allowScriptAccess" value="always" />',
+		'<param name="flashvars" value="' + this.getFlashVars() + '" />',
+		'</object>'].join("");
 };
 
 // Private: getFlashVars builds the parameter string that will be passed
