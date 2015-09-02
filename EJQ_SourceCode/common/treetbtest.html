@@ -1,0 +1,807 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="jquery-1.8.2.js"></script>
+
+    <script type="text/javascript" src="jquery-ui.js"></script>
+    <script type="text/javascript" src="mytreetable.js">
+
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#mytable").mytreetable({expandable: true});
+        });
+    </script>
+    <link rel="stylesheet" href="testcss.css">
+    <style type="text/css">
+
+        table.treetable {
+            border: 1px solid #888;
+            border-collapse: collapse;
+            font-size: .8em;
+            line-height: 1;
+            margin: .6em 0 1.8em 0;
+            width: 100%;
+        }
+
+        table.treetable caption {
+            font-size: .9em;
+            font-weight: bold;
+            margin-bottom: .2em;
+        }
+
+        table.treetable thead {
+            background: #aaa url(images/bg-table-thead.png) repeat-x top left;
+            font-size: .9em;
+        }
+
+        table.treetable thead tr th {
+            border: 1px solid #888;
+            font-weight: normal;
+            padding: .3em 1em .1em 1em;
+            text-align: left;
+        }
+
+        table.treetable tbody tr td {
+            cursor: default;
+            padding: .3em 1em;
+        }
+
+        table.treetable span {
+            background-position: center left;
+            background-repeat: no-repeat;
+            padding: .2em 0 .2em 1.5em;
+        }
+
+        table.treetable span.file {
+            background-image: url(images/file.png);
+        }
+
+        table.treetable span.folder {
+            background-image: url(images/folder.png);
+        }
+
+        table.treetable tr.collapsed span.indenter a {
+            background-image: url(images/expand.png);
+        }
+
+        table.treetable tr.expanded span.indenter a {
+            background-image: url(images/collapse.png);
+        }
+
+        table.treetable tr.selected {
+            background-color: #3875d7;
+            color: #fff;
+        }
+
+        table.treetable tr.collapsed.selected span.indenter a {
+            background-image: url(images/expand-light.png);
+            text-decoration: none;
+        }
+
+        table.treetable tr.expanded.selected span.indenter a {
+            background-image: url(images/collapse-light.png);
+            text-decoration: none;
+        }
+
+        table.treetable tr.accept {
+            background-color: #a3bce4;
+            color: #fff
+        }
+
+        table.treetable tr.collapsed.accept td span.indenter a {
+            background-image: url(images/expand-light.png);
+        }
+
+        table.treetable tr.expanded.accept td span.indenter a {
+            background-image: url(images/collapse-light.png);
+        }
+
+    </style>
+</head>
+<body>
+<ul id="browser" class="filetree treeview">
+    <li class="collapsable">
+        <div class="hitarea collapsable-hitarea"></div>
+        <span class="folder">Folder 1</span>
+        <ul>
+            <li class="last"><span class="file">Item 1.1</span></li>
+        </ul>
+    </li>
+    <li class="collapsable">
+        <div class="hitarea collapsable-hitarea"></div>
+        <span class="folder">Folder 2</span>
+        <ul style="display: block;">
+            <li class="collapsable">
+                <div class="hitarea collapsable-hitarea"></div>
+                <span class="folder">Subfolder 2.1</span>
+                <ul id="folder21">
+                    <li><span class="file">File 2.1.1</span></li>
+                    <li class="last"><span class="file">File 2.1.2</span></li>
+                </ul>
+            </li>
+            <li class="last"><span class="file">File 2.2</span></li>
+        </ul>
+    </li>
+    <li class="closed expandable">
+        <div class="hitarea closed-hitarea expandable-hitarea"></div>
+        <span class="folder">Folder 3 (closed at start)</span>
+        <ul style="display: none;">
+            <li class="last"><span class="file">File 3.1</span></li>
+        </ul>
+    </li>
+    <li class="last"><span class="file">File 4</span></li>
+</ul>
+
+<table class="table table-striped table-bordered dTableR treetable" id="mytable">
+    <thead>
+    <tr>
+        <th>
+
+            选择
+        </th>
+
+        <th>
+
+            代码
+        </th>
+
+        <th>
+
+            物业类型名称
+
+        </th>
+        <th>
+            默认值
+
+
+        </th>
+        <th>
+
+            套型必须输入
+        </th>
+        <th>
+
+            大致地址必须选择
+        </th>
+
+
+        <th>
+
+
+            需填写物业管理费
+        </th>
+        <th>
+
+            允许输入新楼盘
+        </th>
+        <th>
+
+            出售进行检查
+        </th>
+        <th>
+
+            出租进行检查
+        </th>
+
+        <th>
+
+            求购进行检查
+        </th>
+        <th>
+
+            求租进行检查
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr data-tt-id="01">
+        <td>
+
+            <input type="radio" name="radiobox" id="01" class="checkxz">
+        </td>
+
+        <td>
+
+            01
+        </td>
+        <td>
+
+            住宅
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsDefault0" name="FIsDefault0" type="checkbox" value="true"><input
+                name="FIsDefault0" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="m_FIsStype0" name="m.FIsStype0" type="checkbox" value="true"><input
+                name="m.FIsStype0" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsReqAddr0" name="FIsReqAddr0" type="checkbox"
+                   value="true"><input name="FIsReqAddr0" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsRealFee0" name="FIsRealFee0" type="checkbox"
+                   value="true"><input name="FIsRealFee0" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsRegisterNewBuilding0" name="FIsRegisterNewBuilding0" type="checkbox"
+                   value="true"><input name="FIsRegisterNewBuilding0" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckSrcSale0" name="FIsCheckSrcSale0" type="checkbox" value="true"><input
+                name="FIsCheckSrcSale0" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckSrcRent0" name="FIsCheckSrcRent0" type="checkbox" value="true"><input
+                name="FIsCheckSrcRent0" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckPurchaseSale0" name="FIsCheckPurchaseSale0" type="checkbox"
+                   value="true"><input name="FIsCheckPurchaseSale0" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckPurchaseRent0" name="FIsCheckPurchaseRent0" type="checkbox"
+                   value="true"><input name="FIsCheckPurchaseRent0" type="hidden" value="false">
+        </td>
+    </tr>
+    <tr data-tt-id="02">
+        <td>
+
+            <input type="radio" name="radiobox" id="02" class="checkxz">
+        </td>
+
+        <td>
+
+            02
+        </td>
+        <td>
+
+            别墅
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsDefault1" name="FIsDefault1" type="checkbox" value="true"><input
+                name="FIsDefault1" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="m_FIsStype1" name="m.FIsStype1" type="checkbox" value="true"><input
+                name="m.FIsStype1" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsReqAddr1" name="FIsReqAddr1" type="checkbox"
+                   value="true"><input name="FIsReqAddr1" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsRealFee1" name="FIsRealFee1" type="checkbox" value="true"><input
+                name="FIsRealFee1" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsRegisterNewBuilding1" name="FIsRegisterNewBuilding1" type="checkbox"
+                   value="true"><input name="FIsRegisterNewBuilding1" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckSrcSale1" name="FIsCheckSrcSale1" type="checkbox" value="true"><input
+                name="FIsCheckSrcSale1" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckSrcRent1" name="FIsCheckSrcRent1" type="checkbox" value="true"><input
+                name="FIsCheckSrcRent1" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckPurchaseSale1" name="FIsCheckPurchaseSale1" type="checkbox"
+                   value="true"><input name="FIsCheckPurchaseSale1" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckPurchaseRent1" name="FIsCheckPurchaseRent1" type="checkbox"
+                   value="true"><input name="FIsCheckPurchaseRent1" type="hidden" value="false">
+        </td>
+    </tr>
+    <tr data-tt-id="03" data-tt-parent-id="02">
+        <td>
+
+            <input type="radio" name="radiobox" id="03" class="checkxz">
+        </td>
+
+        <td>
+
+            03
+        </td>
+        <td>
+
+            连体别墅
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsDefault2" name="FIsDefault2" type="checkbox" value="true"><input
+                name="FIsDefault2" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="m_FIsStype2" name="m.FIsStype2" type="checkbox" value="true"><input
+                name="m.FIsStype2" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsReqAddr2" name="FIsReqAddr2" type="checkbox"
+                   value="true"><input name="FIsReqAddr2" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsRealFee2" name="FIsRealFee2" type="checkbox"
+                   value="true"><input name="FIsRealFee2" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsRegisterNewBuilding2" name="FIsRegisterNewBuilding2" type="checkbox"
+                   value="true"><input name="FIsRegisterNewBuilding2" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsCheckSrcSale2" name="FIsCheckSrcSale2" type="checkbox"
+                   value="true"><input name="FIsCheckSrcSale2" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckSrcRent2" name="FIsCheckSrcRent2" type="checkbox" value="true"><input
+                name="FIsCheckSrcRent2" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsCheckPurchaseSale2" name="FIsCheckPurchaseSale2"
+                   type="checkbox" value="true"><input name="FIsCheckPurchaseSale2" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsCheckPurchaseRent2" name="FIsCheckPurchaseRent2"
+                   type="checkbox" value="true"><input name="FIsCheckPurchaseRent2" type="hidden" value="false">
+        </td>
+    </tr>
+    <tr data-tt-id="04" data-tt-parent-id="02">
+        <td>
+
+            <input type="radio" name="radiobox" id="04" class="checkxz">
+        </td>
+
+        <td>
+
+            04
+        </td>
+        <td>
+
+            单体别墅
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsDefault3" name="FIsDefault3" type="checkbox"
+                   value="true"><input name="FIsDefault3" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="m_FIsStype3" name="m.FIsStype3" type="checkbox" value="true"><input
+                name="m.FIsStype3" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsReqAddr3" name="FIsReqAddr3" type="checkbox" value="true"><input
+                name="FIsReqAddr3" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsRealFee3" name="FIsRealFee3" type="checkbox" value="true"><input
+                name="FIsRealFee3" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsRegisterNewBuilding3" name="FIsRegisterNewBuilding3" type="checkbox"
+                   value="true"><input name="FIsRegisterNewBuilding3" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsCheckSrcSale3" name="FIsCheckSrcSale3" type="checkbox"
+                   value="true"><input name="FIsCheckSrcSale3" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckSrcRent3" name="FIsCheckSrcRent3" type="checkbox" value="true"><input
+                name="FIsCheckSrcRent3" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckPurchaseSale3" name="FIsCheckPurchaseSale3" type="checkbox"
+                   value="true"><input name="FIsCheckPurchaseSale3" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckPurchaseRent3" name="FIsCheckPurchaseRent3" type="checkbox"
+                   value="true"><input name="FIsCheckPurchaseRent3" type="hidden" value="false">
+        </td>
+    </tr>
+    <tr>
+        <td>
+
+            <input type="radio" name="radiobox" id="05" class="checkxz">
+        </td>
+
+        <td>
+
+            05
+        </td>
+        <td>
+
+            写字楼
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsDefault4" name="FIsDefault4" type="checkbox" value="true"><input
+                name="FIsDefault4" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="m_FIsStype4" name="m.FIsStype4" type="checkbox" value="true"><input
+                name="m.FIsStype4" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsReqAddr4" name="FIsReqAddr4" type="checkbox"
+                   value="true"><input name="FIsReqAddr4" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsRealFee4" name="FIsRealFee4" type="checkbox" value="true"><input
+                name="FIsRealFee4" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsRegisterNewBuilding4" name="FIsRegisterNewBuilding4" type="checkbox"
+                   value="true"><input name="FIsRegisterNewBuilding4" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckSrcSale4" name="FIsCheckSrcSale4" type="checkbox" value="true"><input
+                name="FIsCheckSrcSale4" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckSrcRent4" name="FIsCheckSrcRent4" type="checkbox" value="true"><input
+                name="FIsCheckSrcRent4" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckPurchaseSale4" name="FIsCheckPurchaseSale4" type="checkbox"
+                   value="true"><input name="FIsCheckPurchaseSale4" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsCheckPurchaseRent4" name="FIsCheckPurchaseRent4"
+                   type="checkbox" value="true"><input name="FIsCheckPurchaseRent4" type="hidden" value="false">
+        </td>
+    </tr>
+    <tr>
+        <td>
+
+            <input type="radio" name="radiobox" id="06" class="checkxz">
+        </td>
+
+        <td>
+
+            06
+        </td>
+        <td>
+
+            多层住宅
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsDefault5" name="FIsDefault5" type="checkbox" value="true"><input
+                name="FIsDefault5" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="m_FIsStype5" name="m.FIsStype5" type="checkbox" value="true"><input
+                name="m.FIsStype5" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsReqAddr5" name="FIsReqAddr5" type="checkbox"
+                   value="true"><input name="FIsReqAddr5" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsRealFee5" name="FIsRealFee5" type="checkbox" value="true"><input
+                name="FIsRealFee5" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsRegisterNewBuilding5" name="FIsRegisterNewBuilding5" type="checkbox"
+                   value="true"><input name="FIsRegisterNewBuilding5" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckSrcSale5" name="FIsCheckSrcSale5" type="checkbox" value="true"><input
+                name="FIsCheckSrcSale5" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsCheckSrcRent5" name="FIsCheckSrcRent5" type="checkbox"
+                   value="true"><input name="FIsCheckSrcRent5" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckPurchaseSale5" name="FIsCheckPurchaseSale5" type="checkbox"
+                   value="true"><input name="FIsCheckPurchaseSale5" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckPurchaseRent5" name="FIsCheckPurchaseRent5" type="checkbox"
+                   value="true"><input name="FIsCheckPurchaseRent5" type="hidden" value="false">
+        </td>
+    </tr>
+    <tr>
+        <td>
+
+            <input type="radio" name="radiobox" id="07" class="checkxz">
+        </td>
+
+        <td>
+
+            07
+        </td>
+        <td>
+
+            小高层住宅
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsDefault6" name="FIsDefault6" type="checkbox" value="true"><input
+                name="FIsDefault6" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="m_FIsStype6" name="m.FIsStype6" type="checkbox" value="true"><input
+                name="m.FIsStype6" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsReqAddr6" name="FIsReqAddr6" type="checkbox"
+                   value="true"><input name="FIsReqAddr6" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsRealFee6" name="FIsRealFee6" type="checkbox" value="true"><input
+                name="FIsRealFee6" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsRegisterNewBuilding6" name="FIsRegisterNewBuilding6" type="checkbox"
+                   value="true"><input name="FIsRegisterNewBuilding6" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckSrcSale6" name="FIsCheckSrcSale6" type="checkbox" value="true"><input
+                name="FIsCheckSrcSale6" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckSrcRent6" name="FIsCheckSrcRent6" type="checkbox" value="true"><input
+                name="FIsCheckSrcRent6" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckPurchaseSale6" name="FIsCheckPurchaseSale6" type="checkbox"
+                   value="true"><input name="FIsCheckPurchaseSale6" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckPurchaseRent6" name="FIsCheckPurchaseRent6" type="checkbox"
+                   value="true"><input name="FIsCheckPurchaseRent6" type="hidden" value="false">
+        </td>
+    </tr>
+    <tr>
+        <td>
+
+            <input type="radio" name="radiobox" id="09" class="checkxz">
+        </td>
+
+        <td>
+
+            09
+        </td>
+        <td>
+
+            单型别墅
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsDefault7" name="FIsDefault7" type="checkbox" value="true"><input
+                name="FIsDefault7" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="m_FIsStype7" name="m.FIsStype7" type="checkbox"
+                   value="true"><input name="m.FIsStype7" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsReqAddr7" name="FIsReqAddr7" type="checkbox"
+                   value="true"><input name="FIsReqAddr7" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsRealFee7" name="FIsRealFee7" type="checkbox" value="true"><input
+                name="FIsRealFee7" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsRegisterNewBuilding7" name="FIsRegisterNewBuilding7" type="checkbox"
+                   value="true"><input name="FIsRegisterNewBuilding7" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckSrcSale7" name="FIsCheckSrcSale7" type="checkbox" value="true"><input
+                name="FIsCheckSrcSale7" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckSrcRent7" name="FIsCheckSrcRent7" type="checkbox" value="true"><input
+                name="FIsCheckSrcRent7" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsCheckPurchaseSale7" name="FIsCheckPurchaseSale7"
+                   type="checkbox" value="true"><input name="FIsCheckPurchaseSale7" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckPurchaseRent7" name="FIsCheckPurchaseRent7" type="checkbox"
+                   value="true"><input name="FIsCheckPurchaseRent7" type="hidden" value="false">
+        </td>
+    </tr>
+    <tr>
+        <td>
+
+            <input type="radio" name="radiobox" id="10" class="checkxz">
+        </td>
+
+        <td>
+
+            10
+        </td>
+        <td>
+
+            新型别墅
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsDefault8" name="FIsDefault8" type="checkbox" value="true"><input
+                name="FIsDefault8" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="m_FIsStype8" name="m.FIsStype8" type="checkbox" value="true"><input
+                name="m.FIsStype8" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsReqAddr8" name="FIsReqAddr8" type="checkbox" value="true"><input
+                name="FIsReqAddr8" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsRealFee8" name="FIsRealFee8" type="checkbox" value="true"><input
+                name="FIsRealFee8" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsRegisterNewBuilding8" name="FIsRegisterNewBuilding8"
+                   type="checkbox" value="true"><input name="FIsRegisterNewBuilding8" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsCheckSrcSale8" name="FIsCheckSrcSale8" type="checkbox"
+                   value="true"><input name="FIsCheckSrcSale8" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckSrcRent8" name="FIsCheckSrcRent8" type="checkbox" value="true"><input
+                name="FIsCheckSrcRent8" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsCheckPurchaseSale8" name="FIsCheckPurchaseSale8"
+                   type="checkbox" value="true"><input name="FIsCheckPurchaseSale8" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckPurchaseRent8" name="FIsCheckPurchaseRent8" type="checkbox"
+                   value="true"><input name="FIsCheckPurchaseRent8" type="hidden" value="false">
+        </td>
+    </tr>
+    <tr>
+        <td>
+
+            <input type="radio" name="radiobox" id="11" class="checkxz">
+        </td>
+
+        <td>
+
+            11
+        </td>
+        <td>
+
+            中式别墅
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsDefault9" name="FIsDefault9" type="checkbox" value="true"><input
+                name="FIsDefault9" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="m_FIsStype9" name="m.FIsStype9" type="checkbox" value="true"><input
+                name="m.FIsStype9" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsReqAddr9" name="FIsReqAddr9" type="checkbox" value="true"><input
+                name="FIsReqAddr9" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsRealFee9" name="FIsRealFee9" type="checkbox" value="true"><input
+                name="FIsRealFee9" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsRegisterNewBuilding9" name="FIsRegisterNewBuilding9"
+                   type="checkbox" value="true"><input name="FIsRegisterNewBuilding9" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input checked="checked" disabled="disabled" id="FIsCheckSrcSale9" name="FIsCheckSrcSale9" type="checkbox"
+                   value="true"><input name="FIsCheckSrcSale9" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckSrcRent9" name="FIsCheckSrcRent9" type="checkbox" value="true"><input
+                name="FIsCheckSrcRent9" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckPurchaseSale9" name="FIsCheckPurchaseSale9" type="checkbox"
+                   value="true"><input name="FIsCheckPurchaseSale9" type="hidden" value="false">
+        </td>
+        <td align="center">
+
+            <input disabled="disabled" id="FIsCheckPurchaseRent9" name="FIsCheckPurchaseRent9" type="checkbox"
+                   value="true"><input name="FIsCheckPurchaseRent9" type="hidden" value="false">
+        </td>
+    </tr>
+
+
+    </tbody>
+</table>
+</body>
+</html>

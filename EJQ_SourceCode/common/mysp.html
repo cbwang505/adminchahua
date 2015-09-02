@@ -1,0 +1,43 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="en" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jQuery Minimal Vertical splitter</title>
+    <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="mysplitter.js"></script>
+
+    <style type="text/css" media="all">
+        .simple {
+            height: 200px;
+            width: 500px;
+            border: 0px solid #aaa;
+        }
+        .simple div {
+            overflow: auto;
+        }
+        .vsplitbar {
+            width: 5px;
+            background: #cab;
+        }
+    </style>
+    <script type="text/javascript">
+        $().ready(function() {
+            $(".simple").mysplitter({leftwidth:100});
+        });
+    </script>
+</head>
+<body>
+
+<div class="simple">
+    <div>
+        This is the left pane of the minimal vertical splitter. Easy, eh?
+    </div>
+    <div>
+        This is the right pane of the minimal vertical splitter. No initial size or position was given, so the two panes start at the same size. The other examples are more complex, but show typical markup and code.
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="mypicrun.js"></script>
+    <script type="text/javascript">
+
+
+        $(document).ready(function() {
+
+            $(window).load( function() {
+                $('.mycontainer').mypicrun({
+
+                });
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+
+<div   style="width: 800px" >
+<div class="mycontainer" style="width: 100%;margin: 0; padding: 0;position: relative;">
+
+        <ul class="slides">
+            <li>
+                <img src="images/inacup_samoa.jpg" />
+                <p class="flex-caption">Captions and cupcakes. Winning combination.</p>
+            </li>
+            <li>
+                <a href="#"><img src="images/inacup_pumpkin.jpg" /></a>
+                <p class="flex-caption">This image is wrapped in a link!</p>
+            </li>
+            <li>
+                <img src="images/inacup_donut.jpg" />
+            </li>
+            <li>
+                <img src="images/inacup_vanilla.jpg" />
+            </li>
+        </ul>
+</div>
+</div>
+</body>
+</html>

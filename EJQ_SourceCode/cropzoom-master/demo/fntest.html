@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+
+    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var eles = $(".article-box").find("*");
+            for (var i = 0; i < eles.length; i++) {
+                eles[i].style.fontSize = "12px";
+                eles[i].style.fontFamily = "sans-serif";
+            }
+        });
+
+
+    </script>
+</head>
+<body>
+
+<DIV class=article-box>
+    <TABLE width=970>
+        <TBODY>
+        <TR>
+            <TD align=left style="FONT-SIZE: 13px; FONT-FAMILY: sans-serif">
+                <H2 class=c>
+                    <DIV class=postTitle
+                         style="MARGIN-BOTTOM: 10px; FONT-SIZE: 13px; FONT-FAMILY: Verdana, Arial, helvetica, sans-seriff; FONT-VARIANT: normal; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: bold; COLOR: rgb(35,35,35); FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-INDENT: 0px; -webkit-text-stroke-width: 0px">
+                        <A class=postTitle2 id=cb_post_title_url
+                           style="FONT-SIZE: 13px; TEXT-DECORATION: none; COLOR: rgb(86,182,233)"
+                           href="http://www.cnblogs.com/feng-c-x/p/3297803.html">正则表达式—RegEx(RegularExpressio)（一）</A>
+                    </DIV>
+                    <DIV id=cnblogs_post_body
+                         style="MARGIN-BOTTOM: 20px; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; COLOR: rgb(35,35,35); FONT: 14px/25px Verdana, Arial, helvetica, sans-seriff; LETTER-SPACING: normal; TEXT-INDENT: 0px; -webkit-text-stroke-width: 0px">
+                        <P style="MARGIN: 10px auto; TEXT-INDENT: 0px">今日随笔，想和大家分享一下正则表达式的相关知识。</P>
+
+                        <P style="MARGIN: 10px auto; TEXT-INDENT: 0px">先不说概念性的东西，举一个例子再说。</P>
+
+                        <P style="MARGIN: 10px auto; TEXT-INDENT: 0px">验证你输入的邮政编码 ，你输入的邮政编码必须是六位的数字。</P>
+
+                        <DIV class=cnblogs_code
+                             style='OVERFLOW: auto; FONT-SIZE: 12px !important; BORDER-TOP: rgb(204,204,204) 1px solid; FONT-FAMILY: "Courier New" !important; BORDER-RIGHT: rgb(204,204,204) 1px solid; BORDER-BOTTOM: rgb(204,204,204) 1px solid; COLOR: rgb(0,0,0); PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; MARGIN: 5px 0px; BORDER-LEFT: rgb(204,204,204) 1px solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: rgb(245,245,245)'>
+                            <DIV class=cnblogs_code_toolbar style="MARGIN-TOP: 5px; BACKGROUND-COLOR: rgb(245,245,245)">
+                                <SPAN class=cnblogs_code_copy
+                                      style='FONT-SIZE: 12px !important; FONT-FAMILY: "Courier New" !important; LINE-HEIGHT: 1.5 !important; PADDING-RIGHT: 5px'><A
+                                        title=复制代码
+                                        style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; COLOR: rgb(86,182,233); BORDER-LEFT: medium none; BACKGROUND-COLOR: rgb(245,245,245)"
+                                        onclick=copyCnblogsCode(this) href="javascript:void(0);"><IMG
+                                        style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BACKGROUND-COLOR: rgb(245,245,245)"
+                                        alt=复制代码 src="http://common.cnblogs.com/images/copycode.gif"></A></SPAN></DIV><PRE
+                                style='WORD-WRAP: break-word; MARGIN-BOTTOM: 0px; FONT-SIZE: 12px !important; FONT-FAMILY: "Courier New" !important; WHITE-SPACE: pre-wrap; MARGIN-TOP: 0px'><SPAN
+                                style='FONT-SIZE: 12px !important; FONT-FAMILY: "Courier New" !important; COLOR: rgb(0,0,255); LINE-HEIGHT: 1.5 !important'>while</SPAN> (<SPAN
+                                style='FONT-SIZE: 12px !important; FONT-FAMILY: "Courier New" !important; COLOR: rgb(0,0,255); LINE-HEIGHT: 1.5 !important'>true</SPAN><SPAN
+                                style='FONT-SIZE: 12px !important; FONT-FAMILY: "Courier New" !important; COLOR: rgb(0,0,0); LINE-HEIGHT: 1.5 !important'>)
+            {
+                Console.WriteLine(</SPAN><SPAN
+                                style='FONT-SIZE: 12px !important; FONT-FAMILY: "Courier New" !important; COLOR: rgb(128,0,0); LINE-HEIGHT: 1.5 !important'>"</SPAN><SPAN
+                                style='FONT-SIZE: 12px !important; FONT-FAMILY: "Courier New" !important; COLOR: rgb(128,0,0); LINE-HEIGHT: 1.5 !important'>输入邮政编码</SPAN><SPAN
+                                style='FONT-SIZE: 12px !important; FONT-FAMILY: "Courier New" !important; COLOR: rgb(128,0,0); LINE-HEIGHT: 1.5 !important'>"</SPAN><SPAN
+                                style='FONT-SIZE: 12px !important; FONT-FAMILY: "Courier New" !important; COLOR: rgb(0,0,0); LINE-HEIGHT: 1.5 !important'>);
+                </SPAN><SPAN style='FONT-SIZE: 12px !important; FONT-FAMILY: "Courier New" !important; COLOR: rgb(0,0,255); LINE-HEIGHT: 1.5 !important'>string</SPAN> codeRegex = <SPAN
+                                style='FONT-SIZE: 12px !important; FONT-FAMILY: "Courier New" !important; COLOR: rgb(128,0,0); LINE-HEIGHT: 1.5 !important'>"</SPAN><SPAN
+                                style='FONT-SIZE: 12px !important; FONT-FAMILY: "Courier New" !important; COLOR: rgb(128,0,0); LINE-HEIGHT: 1.5 !important'>^[0-9]{6}$</SPAN><SPAN
+                                style='FONT-SIZE: 12px !important; FONT-FAMILY: "Courier New" !important; COLOR: rgb(128,0,0); LINE-HEIGHT: 1.5 !important'>"</SPAN><SPAN
+                                style='FONT-SIZE: 12px !important; FONT-FAMILY: "Courier New" !important; COLOR: rgb(0,0,0); LINE-HEIGHT: 1.5 !important'>;//创建正则表达式模式
+                </SPAN><SPAN style='FONT-SIZE: 12px !important; FONT-FAMILY: "Courier New" !important; COLOR: rgb(0,0,255); LINE-HEIGHT: 1.5 !important'>string</SPAN> code =<SPAN
+                                style='FONT-SIZE: 12px !important; FONT-FAMILY: "Courier New" !important; COLOR: rgb(0,0,0); LINE-HEIGHT: 1.5 !important'> Console.ReadLine();
+                Console.WriteLine(Regex.IsMatch(code, codeRegex));//调用Regex的IsMatch方法，第一个参数是你输入要匹配的字符串，第二个参数</SPAN>正则表达式模式，返回的结果是一个Boolean类型</PRE>
+                            <PRE style='WORD-WRAP: break-word; MARGIN-BOTTOM: 0px; FONT-SIZE: 12px !important; FONT-FAMILY: "Courier New" !important; WHITE-SPACE: pre-wrap; MARGIN-TOP: 0px'><SPAN
+                                    style='FONT-SIZE: 12px !important; FONT-FAMILY: "Courier New" !important; COLOR: rgb(0,0,0); LINE-HEIGHT: 1.5 !important'>}</SPAN></PRE>
+                        </DIV>
+                    </DIV>
+                </H2>
+            </TD>
+        </TR>
+        </TBODY>
+    </TABLE>
+</DIV>
+</body>
+</html>

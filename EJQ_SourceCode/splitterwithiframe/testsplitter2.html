@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="splitter.js"></script>
+    <script type="text/javascript" src="mysplitter.js"></script>
+    <style type="text/css" media="all">
+        #MySplitter {
+            height: 700px;
+            width: 1400px;
+            border: 5px solid #aaa;
+        }
+        #MySplitter div {
+            overflow: auto;
+        }
+        .vsplitbar {
+            width: 5px;
+            background: #aaa;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#MySplitter").mysplitter({leftwidth:200});
+          $("#leftmenu").window.document.unbind("mousemove");
+        });
+
+    </script>
+</head>
+<body>
+<div id="MySplitter">
+    <div>
+        <iframe src="" name="leftmenu" id="leftmenu" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
+    </div>
+    <div>
+        This is the right pane of the minimal vertical splitter. No initial size or position was given, so the two panes start at the same size. The other examples are more complex, but show typical markup and code.
+    </div>
+</div>
+</body>
+</html>

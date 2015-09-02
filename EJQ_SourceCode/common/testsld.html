@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+
+    <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+    <script src="unslider.js"></script>
+
+    <style type="text/css">
+
+        .banner { position: relative; overflow: auto; }
+        .banner li { list-style: none; }
+        .banner ul li { float: left; }
+    </style>
+    <script type="text/javascript">
+
+        $(function() {
+            $('.banner').unslider();
+        });
+    </script>
+</head>
+<body>
+<div class="banner">
+    <ul>
+        <li>This is a slide.
+        <img src="http://images.cnitblog.com/blog/100150/201312/26110746-2dacf5335b5843d0a168ceed01c425ca.gif" alt=""></li>
+        <li>This is another slide.
+        <img src="http://images.cnitblog.com/blog/100150/201312/26111033-a80ac73c01054379a850cfbf4235c7ad.gif" alt="">
+        </li>
+        <li>This is a final slide.
+        
+        <img src="http://images.cnitblog.com/blog/100150/201312/26110409-814c71da22894e9bb65a594f01284433.gif" alt=""></li>
+    </ul>
+</div>
+</body>
+</html>

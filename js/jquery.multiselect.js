@@ -23,7 +23,7 @@
   var multiselectID = 0;
   var $doc = $(document);
   var multiValues = "";
-  $.widget("ech.multiselect", {
+  $.widget("ui.multiselect", {
 
     // default options
     options: {

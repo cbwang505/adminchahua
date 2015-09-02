@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title> - jsFiddle demo</title>
+
+    <script type='text/javascript' src='//code.jquery.com/jquery-1.10.1.js'></script>
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+
+
+    <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+    <style type='text/css'>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @-webkit-keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .navbar.affix {
+            position: fixed;
+            z-index: 10000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            border: 0;
+            margin-top: 0;
+            padding-top: 0px;
+            border-radius: 0;
+            animation: fadeIn 0.5s ease-in;
+            -webkit-animation: fadeIn 0.5s;
+        }
+        .affix-placeholder {
+            display: none;
+        }
+        .navbar.affix + .affix-placeholder {
+            display: block;
+            visibility: hidden;
+        }
+    </style>
+
+
+
+    <script type='text/javascript'>//<![CDATA[
+    $(window).load(function(){
+        $('.navbar').affix({
+            offset: {
+                top: 125
+            }
+        });
+
+        var $submenu = $(".navbar");
+
+// To account for the affixed submenu being pulled out of the content flow.
+        $submenu.after('<div style="width:100%;height:' + $submenu.height() + ';" class="navbar affix-placeholder"></div>');
+    });//]]>
+
+    </script>
+
+
+</head>
+<body>
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Some Header Content Above Menu</h1>
+
+                <h2>Some subheader</h2>
+
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-col"> <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="nav-col">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">Item 1</a>
+
+                            </li>
+                            <li><a href="#">Item 2</a>
+
+                            </li>
+                            <li><a href="#">Item 3</a>
+
+                            </li>
+                            <li><a href="#">Item 4</a>
+
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="body-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Test Website</h1>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rutrum nibh in rhoncus egestas. Sed interdum ultrices semper. Donec ut rhoncus justo. Maecenas purus velit, lobortis vitae dapibus eget, feugiat a leo. Sed iaculis ornare interdum. Vivamus commodo rhoncus fringilla. Duis eget facilisis nulla. Curabitur suscipit imperdiet dui a porttitor. Nullam eget ornare lacus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rutrum nibh in rhoncus egestas. Sed interdum ultrices semper. Donec ut rhoncus justo. Maecenas purus velit, lobortis vitae dapibus eget, feugiat a leo. Sed iaculis ornare interdum. Vivamus commodo rhoncus fringilla. Duis eget facilisis nulla. Curabitur suscipit imperdiet dui a porttitor. Nullam eget ornare lacus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rutrum nibh in rhoncus egestas. Sed interdum ultrices semper. Donec ut rhoncus justo. Maecenas purus velit, lobortis vitae dapibus eget, feugiat a leo. Sed iaculis ornare interdum. Vivamus commodo rhoncus fringilla. Duis eget facilisis nulla. Curabitur suscipit imperdiet dui a porttitor. Nullam eget ornare lacus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rutrum nibh in rhoncus egestas. Sed interdum ultrices semper. Donec ut rhoncus justo. Maecenas purus velit, lobortis vitae dapibus eget, feugiat a leo. Sed iaculis ornare interdum. Vivamus commodo rhoncus fringilla. Duis eget facilisis nulla. Curabitur suscipit imperdiet dui a porttitor. Nullam eget ornare lacus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rutrum nibh in rhoncus egestas. Sed interdum ultrices semper. Donec ut rhoncus justo. Maecenas purus velit, lobortis vitae dapibus eget, feugiat a leo. Sed iaculis ornare interdum. Vivamus commodo rhoncus fringilla. Duis eget facilisis nulla. Curabitur suscipit imperdiet dui a porttitor. Nullam eget ornare lacus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rutrum nibh in rhoncus egestas. Sed interdum ultrices semper. Donec ut rhoncus justo. Maecenas purus velit, lobortis vitae dapibus eget, feugiat a leo. Sed iaculis ornare interdum. Vivamus commodo rhoncus fringilla. Duis eget facilisis nulla. Curabitur suscipit imperdiet dui a porttitor. Nullam eget ornare lacus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rutrum nibh in rhoncus egestas. Sed interdum ultrices semper. Donec ut rhoncus justo. Maecenas purus velit, lobortis vitae dapibus eget, feugiat a leo. Sed iaculis ornare interdum. Vivamus commodo rhoncus fringilla. Duis eget facilisis nulla. Curabitur suscipit imperdiet dui a porttitor. Nullam eget ornare lacus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rutrum nibh in rhoncus egestas. Sed interdum ultrices semper. Donec ut rhoncus justo. Maecenas purus velit, lobortis vitae dapibus eget, feugiat a leo. Sed iaculis ornare interdum. Vivamus commodo rhoncus fringilla. Duis eget facilisis nulla. Curabitur suscipit imperdiet dui a porttitor. Nullam eget ornare lacus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rutrum nibh in rhoncus egestas. Sed interdum ultrices semper. Donec ut rhoncus justo. Maecenas purus velit, lobortis vitae dapibus eget, feugiat a leo. Sed iaculis ornare interdum. Vivamus commodo rhoncus fringilla. Duis eget facilisis nulla. Curabitur suscipit imperdiet dui a porttitor. Nullam eget ornare lacus.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+
+</html>
+

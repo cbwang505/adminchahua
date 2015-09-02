@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+
+    <link href="css/jquery.multiselect.css" rel="stylesheet" type="text/css">
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+    <script type="javascript" src="js/jquery-ui.custom.js"></script>
+    <script type="text/javascript" src="ui/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="ui/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="js/jquery.multiselect.js"></script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $("select").multiselect();
+        });
+    </script>
+
+</head>
+<body>
+<select id="sela" title="Basic example" multiple="multiple" name="example-basic" size="5">
+    <option value="V1">Option 1</option>
+    <option value="V2">Option 2</option>
+    <option value="V3">Option 3</option>
+    <option value="option4">Option 4</option>
+    <option value="option5">Option 5</option>
+    <option value="option6">Option 6</option>
+    <option value="option7">Option 7</option>
+    <option value="option8">Option 8</option>
+    <option value="option9">Option 9</option>
+    <option value="option10">Option 10</option>
+    <option value="option11">Option 11</option>
+    <option value="option12">Option 12</option>
+</select>
+</body>
+<div>
+    <button style="width:227px;color: #eb8f00;font-weight: bold;border:1px solid #fbd850;background-color: #FFFFFF;height: 27px;text-align: center;font-size: 1.1em">
+        ---请选择---
+    </button>
+
+    <div style="padding: 3px;border: 1px solid #dddddd;background-color: #eeeeee;width:219px;">
+        <ul style="position: relative;width:217px;color: #2779aa;font-weight: bold;border: 1px solid #e78f08;background-color:#f6a828;height: 21px;text-align: center;font-size: 1.1em;list-style: none;padding: 0px;margin:0px">
+            <li style="float: left;font-size: 11px;color: white;position: absolute;top: -2px;width: 50px;left: 28px;">
+                <lable style="">
+                    <input type="checkbox" name="cka" id="cka" style="position:relative;top: 3px;"/>全选
+                </lable>
+
+            </li>
+            <li style="float: left;font-size: 11px;padding-left: 8px;color:white;position: absolute;top: -2px;width: 100px ;left: 80px;">
+                <lable style=""><input type="checkbox" name="ckna" id="ckna" style="position:relative;top: 3px;"/>全不选</lable>
+            </li>
+        </ul>
+
+        <ul  style="height: 175px;overflow-y: auto;position:relative;margin: 0px;padding: 0px;list-style:none;" class="ui-multiselect-checkboxes ui-widget">
+            <li ><label for="ui-multiselect-sela-option-0" title="" class="ui-corner-all"><input
+                    id="ui-multiselect-sela-option-0" name="multiselect_sela" type="checkbox" value="V1" title=""><span>Option 1</span></label>
+            </li>
+            <li class=" "><label for="ui-multiselect-sela-option-1" title="" class="ui-corner-all"><input
+                    id="ui-multiselect-sela-option-1" name="multiselect_sela" type="checkbox" value="V2" title=""><span>Option 2</span></label>
+            </li>
+            <li class=" "><label for="ui-multiselect-sela-option-2" title="" class="ui-corner-all"><input
+                    id="ui-multiselect-sela-option-2" name="multiselect_sela" type="checkbox" value="V3" title=""><span>Option 3</span></label>
+            </li>
+            <li class=" "><label for="ui-multiselect-sela-option-3" title="" class="ui-corner-all"><input
+                    id="ui-multiselect-sela-option-3" name="multiselect_sela" type="checkbox" value="option4"
+                    title=""><span>Option 4</span></label></li>
+            <li class=" "><label for="ui-multiselect-sela-option-4" title="" class="ui-corner-all"><input
+                    id="ui-multiselect-sela-option-4" name="multiselect_sela" type="checkbox" value="option5"
+                    title=""><span>Option 5</span></label></li>
+            <li class=" "><label for="ui-multiselect-sela-option-5" title="" style="border: 1px solid #fbcb09;background-color: #fdf5ce;"  class="ui-corner-all ui-state-hover"><input
+                    id="ui-multiselect-sela-option-5" name="multiselect_sela" type="checkbox" value="option6"
+                    title=""><span>Option 6</span></label></li>
+            <li class=" "><label for="ui-multiselect-sela-option-6" title="" class="ui-corner-all"><input
+                    id="ui-multiselect-sela-option-6" name="multiselect_sela" type="checkbox" value="option7"
+                    title=""><span>Option 7</span></label></li>
+            <li class=" "><label for="ui-multiselect-sela-option-7" title="" class="ui-corner-all"><input
+                    id="ui-multiselect-sela-option-7" name="multiselect_sela" type="checkbox" value="option8"
+                    title=""><span>Option 8</span></label></li>
+            <li class=" "><label for="ui-multiselect-sela-option-8" title="" class="ui-corner-all"><input
+                    id="ui-multiselect-sela-option-8" name="multiselect_sela" type="checkbox" value="option9"
+                    title=""><span>Option 9</span></label></li>
+            <li class=" "><label for="ui-multiselect-sela-option-9" title="" class="ui-corner-all"><input
+                    id="ui-multiselect-sela-option-9" name="multiselect_sela" type="checkbox" value="option10" title=""><span>Option 10</span></label>
+            </li>
+            <li class=" "><label for="ui-multiselect-sela-option-10" title="" class="ui-corner-all"><input
+                    id="ui-multiselect-sela-option-10" name="multiselect_sela" type="checkbox" value="option11"
+                    title=""><span>Option 11</span></label></li>
+            <li class=" "><label for="ui-multiselect-sela-option-11" title="" class="ui-corner-all"><input
+                    id="ui-multiselect-sela-option-11" name="multiselect_sela" type="checkbox" value="option12"
+                    title=""><span>Option 12</span></label></li>
+        </ul>
+    </div>
+</div>
+
+</html>
