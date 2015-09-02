@@ -4,22 +4,46 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 
-    <link href="css/jquery.multiselect.css" rel="stylesheet" type="text/css">
+<!--    <link href="css/jquery.multiselect.css" rel="stylesheet" type="text/css">-->
    <!-- <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">-->
     <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
     <script type="text/javascript" src="js/myselect.js"></script>
     <style type="text/css">
         .ui-state-hover {
-
+            font-weight: bold;
             border: 1px solid #fbcb09;
             background-color: #fdf5ce;
         }
+        .ui-multiselect { padding:2px 0 2px 4px; text-align:left }
+        .ui-multiselect span.ui-icon { float:right }
+        .ui-multiselect-single .ui-multiselect-checkboxes input { position:absolute !important; top: auto !important; left:-9999px; }
+        .ui-multiselect-single .ui-multiselect-checkboxes label { padding:5px !important }
+
+        .ui-multiselect-header { margin-bottom:3px; padding:3px 0 3px 4px }
+        .ui-multiselect-header ul { font-size:0.9em }
+        .ui-multiselect-header ul li { float:left; padding:0 10px 0 0 }
+        .ui-multiselect-header a { text-decoration:none }
+        .ui-multiselect-header a:hover { text-decoration:underline }
+        .ui-multiselect-header span.ui-icon { float:left }
+        .ui-multiselect-header li.ui-multiselect-close { float:right; text-align:right; padding-right:0 }
+
+        .ui-multiselect-menu { display:none; padding:3px; position:absolute; z-index:10000; text-align: left }
+        .ui-multiselect-checkboxes { position:relative /* fixes bug in IE6/7 */; overflow-y:auto }
+        .ui-multiselect-checkboxes label { cursor:default; display:block; border:1px solid transparent; padding:3px 1px }
+        .ui-multiselect-checkboxes label input { position:relative; top:1px }
+        .ui-multiselect-checkboxes li { clear:both; font-size:0.9em; padding-right:3px }
+        .ui-multiselect-checkboxes li.ui-multiselect-optgroup-label { text-align:center; font-weight:bold; border-bottom:1px solid }
+        .ui-multiselect-checkboxes li.ui-multiselect-optgroup-label a { display:block; padding:3px; margin:1px 0; text-decoration:none }
+
+        /* remove label borders in IE6 because IE6 does not support transparency */
+        * html .ui-multiselect-checkboxes label { border:none }
+
     </style>
 
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $("select").myselect({ selectedText: '# 列已选择',onChangeTextFunction:function(n){
+            $("select").myselect({controlWidth:"150px" ,selectedText: '# 列已选择',onChangeTextFunction:function(n){
                 alert(n.join(","));
 
             }});
@@ -31,12 +55,12 @@
 <select id="sela" title="Basic example" multiple="multiple" name="example-basic" size="5">
     <option value="V1">Option 1</option>
     <option value="V2">Option 2</option>
-    <option value="V3">Option 3</option>
+    <option value="V3" selected="selected">Option 3</option>
     <option value="option4">Option 4</option>
     <option value="option5">Option 5</option>
     <option value="option6">Option 6</option>
     <option value="option7">Option 7</option>
-    <option value="option8">Option 8</option>
+    <option value="option8"  selected="selected">Option 8</option>
     <option value="option9">Option 9</option>
     <option value="option10">Option 10</option>
     <option value="option11">Option 11</option>

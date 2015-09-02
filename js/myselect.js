@@ -9,7 +9,9 @@
 
             srcTarget: srctargetele,
             header: true,
-            height: 175,
+
+            controlWidth:"227px",
+            headerHeight: "27px",
             minWidth: 225,
             classes: '',
             checkAllText: '全选',
@@ -76,7 +78,7 @@
             this.initPostion();
         },
         startCreatElement: function () {
-            var buttonEle = (this.mydefault.button = $('<button type="button"  style="width:227px;color: #eb8f00;font-weight: bold;border:1px solid #fbd850;background-color: #FFFFFF;height: 27px;text-align: center;font-size: 1.1em"></button>'))
+            var buttonEle = (this.mydefault.button = $('<button type="button"  style="width:'+this.mydefault.controlWidth+';color: #eb8f00;font-weight: bold;border:1px solid #fbd850;background-color: #FFFFFF;height: '+this.mydefault.headerHeight+';text-align: center;font-size: 1.1em"></button>'))
             buttonEle.insertAfter(this.mydefault.srcTarget);
 
             var buttonlabel = (this.mydefault.buttonlabel = $('<span />'))
@@ -85,7 +87,7 @@
             var menu = (this.mydefault.mymenu = $(' <div style="padding: 3px;border: 1px solid #dddddd;background-color: #eeeeee;width:219px;"></div>'))
 
                 .appendTo($(this.mydefault.appendTo));
-            var headerLinkContainer = (this.mydefault.headerLinkContainer = $(' <ul style="position: relative;width:217px;color: #2779aa;font-weight: bold;border: 1px solid #e78f08;background-color:#f6a828;height: 21px;text-align: center;font-size: 1.1em;list-style: none;padding: 0px;margin:0px"> <li style="float: left;font-size: 11px;color: white;position: absolute;top: 4px;width: 50px;left: 28px;"> <lable style=""> <a href="#"  class="' + this.mydefault.checkAllIDClass + '"  style="color: white;font-size: 12px;text-decoration: none">' + this.mydefault.checkAllText + '</a> </lable> </li> <li style="float: left;font-size: 11px;padding-left: 8px;color:white;position: absolute;top: 4px;width: 100px ;left: 80px;"> <lable style="">  <a href="#"  class="' + this.mydefault.uncheckAllIDClass + '"  style="color: white;font-size: 12px;text-decoration: none">' + this.mydefault.uncheckAllText + '</a> </li> </ul>'))
+            var headerLinkContainer = (this.mydefault.headerLinkContainer = $(' <ul style="position: relative;width:'+(parseInt(this.mydefault.controlWidth.replace('px',''))-10)+'px;color: #2779aa;font-weight: bold;border: 1px solid #e78f08;background-color:#f6a828;height: 21px;text-align: center;font-size: 1.1em;list-style: none;padding: 0px;margin:0px"> <li style="float: left;font-size: 11px;color: white;position: absolute;top: 4px;width:'+ (parseInt(this.mydefault.controlWidth.replace('px',''))/2)+'px;left: 0px;"> <lable style=""> <a href="#"  class="' + this.mydefault.checkAllIDClass + '"  style="color: white;font-size: 12px;text-decoration: none">' + this.mydefault.checkAllText + '</a> </lable> </li> <li style="float: left;font-size: 11px;color:white;position: absolute;top: 4px;width:' + (parseInt(this.mydefault.controlWidth.replace('px',''))/2)+'px ;left: '+(parseInt(this.mydefault.controlWidth.replace('px',''))/2)+'px;"> <lable style="">  <a href="#"  class="' + this.mydefault.uncheckAllIDClass + '"  style="color: white;font-size: 12px;text-decoration: none">' + this.mydefault.uncheckAllText + '</a> </li> </ul>'))
                 .appendTo(menu);
             var checkboxContainer = (this.mydefault.checkboxContainer = $('  <ul  style="height: 175px;overflow-y: auto;position:relative;margin: 0px;padding: 0px;list-style:none;" class="ui-multiselect-checkboxes ui-widget">'))
                 .appendTo(menu);
@@ -115,8 +117,8 @@
                 var myid = "option" + i;
                 var mytitle = $(this).text();
                 var myvalue = $(this).val();
-
-                var checkboxli = $(' <li class=" "><label for="ui-multiselect-sela-option-3" title="" class="ui-corner-all"><input id="' + myid + '" name="multiselect_sela" type="checkbox" value="' + myvalue + '" title=""><span>' + mytitle + '</span></label></li>')
+               var seled=$(this).is(":selected")?true:false;
+                var checkboxli = $(' <li class=" "><label for="ui-multiselect-sela-option-3" title="" class="ui-corner-all"><input id="' + myid + '" name="'+myid+'" type="checkbox" value="' + myvalue + '" '+(seled?'checked="checked"':'')+'><span>' + mytitle + '</span></label></li>')
                     .hover(function () {
 
                         $(this).addClass("ui-state-hover");
